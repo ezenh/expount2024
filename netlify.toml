@@ -1,0 +1,8 @@
+[build]
+  publish = "build"  # El directorio de publicación, puede ser "dist" o "public" dependiendo de tu proyecto
+  command = "npm run build"  # El comando para construir tu proyecto
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

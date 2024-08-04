@@ -15,9 +15,16 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://ezenh87:niZek8lQJ0CpQzSX@expount.ph9wkxg.mongodb.net/expount2024');
+// mongoose.connect('mongodb+srv://ezenh87:niZek8lQJ0CpQzSX@expount.ph9wkxg.mongodb.net/expount2024');
+const MONGODB_URI = process.env.MONGODB_URI;
 const SECRET_KEY = process.env.JWT_SECRET;
 
+mongoose.connect(MONGODB_URI).
+    then(() => {
+    console.log('Conectado a MongoDB');
+}).catch(err => {
+    console.error('Error al conectar a MongoDB:', err.message);
+});
 
 
 const UserSchema = new mongoose.Schema({
