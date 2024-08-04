@@ -105,7 +105,7 @@ let googleUser = null;
 function onGoogleScriptLoad() {
     gapi.load('auth2', function() {
         gapi.auth2.init({
-            client_id: '710446449605-j96eqitecmr9op1a2vebja92ci15m0cu.apps.googleusercontent.com',
+            client_id: '710446449605-6kvuci62ub95il6msl49gi0gnujsvbl4.apps.googleusercontent.com',
         }).then(() => {
             console.log('Google Auth initialized');
             googleAuthInitialized = true;
