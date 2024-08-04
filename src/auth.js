@@ -98,11 +98,11 @@
 // }
 
 
-const googleClientId = process.env.GOOGLE_CLIENT_ID;
+// const googleClientId = process.env.GOOGLE_CLIENT_ID;
 
-gapi.auth2.init({
-    client_id: googleClientId,
-});
+// gapi.auth2.init({
+//     client_id: googleClientId,
+// });
 
 let googleAuthInitialized = false;
 let googleUser = null;
