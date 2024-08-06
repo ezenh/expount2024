@@ -1,3 +1,5 @@
+// import { CONFIG } from "./config";
+
 function checkGeolocation() {
     return new Promise((resolve, reject) => {
         if ("geolocation" in navigator) {

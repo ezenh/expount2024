@@ -1,207 +1,137 @@
-// let googleAuthInitialized = false;
-// let _auth2
-// function onGoogleScriptLoad() {
-//     gapi.load('auth2', function() {
-//         _auth2 = gapi.auth2.init({
-//             client_id: '710446449605-j96eqitecmr9op1a2vebja92ci15m0cu.apps.googleusercontent.com',
-//         }).then(() => {
-//             console.log('Google Auth initialized');
-//             googleAuthInitialized = true;
-//             // Dispara un evento personalizado para notificar que Google Auth está listo
-//             document.dispatchEvent(new Event('googleAuthReady'));
-//         });
-//     });
-// }
 
-// function initGoogleAuth() {
-//     if (typeof gapi === 'undefined') {
-//         console.log('Google API not loaded yet. Waiting...');
-//         document.addEventListener('googleAuthReady', () => {
-//             console.log('Google Auth is now ready');
-//         });
-//     } else if (!googleAuthInitialized) {
-//         onGoogleScriptLoad();
-//     }
-// }
+let googleClient_id = "710446449605-6kvuci62ub95il6msl49gi0gnujsvbl4.apps.googleusercontent.com"
+let isLoggedIn = false;
 
-// let googleUser = null;
-
-// function initGoogleAuth() {
-//     gapi.load('auth2', function() {
-//         gapi.auth2.init({
-//             client_id: '710446449605-j96eqitecmr9op1a2vebja92ci15m0cu.apps.googleusercontent.com',
-//         }).then(() => {
-//             console.log('Google Auth initialized');
-//         });
-//     });
-// }
-
-// function signInWithGoogle() {
-//     const auth2 = gapi.auth2.getAuthInstance();
-//     auth2.signIn().then(
-//         (user) => {
-//             googleUser = user;
-//             const profile = user.getBasicProfile();
-//             const userData = {
-//                 name: profile.getGivenName(),
-//                 lastName: profile.getFamilyName(),
-//                 email: profile.getEmail(),
-//                 photo: profile.getImageUrl(),
-//             };
-//             showRegisterForm(userData);
-//         },
-//         (error) => {
-//             console.error('Error en inicio de sesión con Google:', error);
-//         }
-//     );
-// }
-
-// function login(email, password) {
-//     const hashedPassword = CryptoJS.SHA256(password).toString();
-//     api.login({ email, password: hashedPassword })
-//         .then(response => {
-//             if (response.token) {
-//                 localStorage.setItem('token', response.token);
-//                 showCover(response.user.name);
-//             } else {
-//                 alert('Credenciales inválidas');
-//             }
-//         })
-//         .catch(error => {
-//             console.error('Error de inicio de sesión:', error);
-//             alert('Error de inicio de sesión');
-//         });
-// }
-
-// function register(userData) {
-//     if (userData.password) {
-//         userData.password = CryptoJS.SHA256(userData.password).toString();
-//     }
-//     api.register(userData)
-//         .then(response => {
-//             if (response.token) {
-//                 localStorage.setItem('token', response.token);
-//                 showCover(response.user.name);
-//             } else {
-//                 alert('Error en el registro');
-//             }
-//         })
-//         .catch(error => {
-//             console.error('Error en el registro:', error);
-//             alert('Error en el registro');
-//         });
-// }
-
-// function logout() {
-//     localStorage.removeItem('token');
-//     showLoginForm();
-// }
+let logedUser
 
 
-// const googleClientId = process.env.GOOGLE_CLIENT_ID;
 
-// gapi.auth2.init({
-//     client_id: googleClientId,
-// });
+function initLoginButton() {
+    const savedUser = localStorage.getItem('');
 
-let googleAuthInitialized = false;
-let googleUser = null;
+    // if (savedUser) {
+    //     isLoggedIn = true;
+    // } else {
+        loadGoogleScript().then(() => {
+            google.accounts.id.initialize({
+                client_id: googleClient_id,
+                callback: handleCredentialResponse
+            });
 
-function onGoogleScriptLoad() {
-    gapi.load('auth2', function() {
-        gapi.auth2.init({
-            client_id: '710446449605-6kvuci62ub95il6msl49gi0gnujsvbl4.apps.googleusercontent.com',
-        }).then(() => {
-            console.log('Google Auth initialized');
-            googleAuthInitialized = true;
-            document.dispatchEvent(new Event('googleAuthReady'));
-        }).catch(error => {
-            console.error('Error initializing Google Auth:', error);
+            google.accounts.id.renderButton(
+                document.getElementById('google-login'),
+                {
+                    theme: 'outline',
+                    size: 'large',
+                    type: 'standard',
+                    shape: 'pill',
+                    text: 'signin_with',
+                    logo_alignment: 'left',
+                    width: '300',
+                    locale: 'es_ES'
+                }
+            );
+
+            // google.accounts.id.prompt(); // Optional: display the One Tap prompt
         });
+    // }
+}
+
+// function loadGoogleScript() {
+//     return new Promise((resolve, reject) => {
+//         const script = document.createElement('script');
+//         script.src = 'https://accounts.google.com/gsi/client';
+//         script.async = true;
+//         script.defer = true;
+//         script.onload = resolve;
+//         script.onerror = reject;
+//         document.head.appendChild(script);
+//     });
+// }
+
+function loadGoogleScript() {
+    return new Promise((resolve, reject) => {
+        const scriptId = 'google-jssdk';
+        let script = document.getElementById(scriptId);
+
+        if (script) {
+            resolve();
+            return;
+        }
+
+        script = document.createElement('script');
+        script.id = scriptId;
+        script.src = `https://accounts.google.com/gsi/client?cache_buster=${new Date().getTime()}`; // Parámetro para evitar caché
+        script.async = true;
+        script.defer = true;
+
+        script.onload = resolve;
+        script.onerror = reject;
+
+        document.body.appendChild(script);
     });
 }
-// Check if Google API is already loaded
-if (typeof gapi !== 'undefined') {
-    onGoogleScriptLoad();
-} else {
-    document.addEventListener('googleScriptLoaded', onGoogleScriptLoad);
-}
 
-function initGoogleAuth() {
-    if (typeof gapi === 'undefined') {
-        console.log('Google API not loaded yet. Waiting...');
-        document.addEventListener('googleAuthReady', () => {
-            console.log('Google Auth is now ready');
-        });
-    } else if (!googleAuthInitialized) {
-        onGoogleScriptLoad();
+function handleCredentialResponse(response) {
+    try {
+        const payload = JSON.parse(atob(response.credential.split('.')[1]));
+        const user = {
+            // id: payload.sub,
+            name: payload.name,
+            given_name: payload.given_name,
+            family_name: payload.family_name,
+            middle_name: payload.middle_name,
+            nickname: payload.nickname,
+            profile: payload.profile,
+            picture: payload.picture,
+            email: payload.email,
+            email_verified: payload.email_verified,
+            gender: payload.gender,
+            birthdate: payload.birthdate,
+            zoneinfo: payload.zoneinfo,
+            locale: payload.locale,
+            phone_number: payload.phone_number,
+            phone_number_verified: payload.phone_number_verified,
+            address: payload.address,
+            updated_at: payload.updated_at
+        };
+        console.log('Datos del usuario:', user);
+        checkUsersinDb(user)
+        // showRegisterForm(user);
+    } catch (error) {
+        console.error('Error al procesar la respuesta de credenciales:', error);
+        document.getElementById('login-status').textContent = 'Error en el inicio de sesión. Por favor, intente de nuevo.';
     }
 }
-
-function signInWithGoogle() {
-    if (!googleAuthInitialized) {
-        console.error('Google Auth is not initialized yet.');
-        return;
-    }
-    const auth2 = gapi.auth2.getAuthInstance();
-    auth2.signIn().then(
-        (user) => {
-            googleUser = user;
-            const profile = user.getBasicProfile();
-            const userData = {
-                name: profile.getGivenName(),
-                lastName: profile.getFamilyName(),
-                email: profile.getEmail(),
-                photo: profile.getImageUrl(),
-            };
-            showRegisterForm(userData);
-        },
-        (error) => {
-            console.error('Error en inicio de sesión con Google:', error);
-        }
-    );
-}
-
-function login(email, password) {
-    const hashedPassword = CryptoJS.SHA256(password).toString();
-    api.login({ email, password: hashedPassword })
-        .then(response => {
-            if (response.token) {
-                localStorage.setItem('token', response.token);
-                showCover(response.user.name);
-            } else {
-                alert('Credenciales inválidas');
-            }
-        })
-        .catch(error => {
-            console.error('Error de inicio de sesión:', error);
-            alert('Error de inicio de sesión');
-        });
-}
-
 function register(userData) {
     if (userData.password) {
         userData.password = CryptoJS.SHA256(userData.password).toString();
     }
     api.register(userData)
         .then(response => {
-            if (response.token) {
+            if (response.success) {
                 localStorage.setItem('token', response.token);
                 showCover(response.user.name);
             } else {
-                alert('Error en el registro');
+                console.error('Error en el registro:', response.error);
+                alert('Error en el registro: ' + response.error);
             }
         })
         .catch(error => {
             console.error('Error en el registro:', error);
-            alert('Error en el registro');
+
+            let errorMessage = error.error
+
+            if(errorMessage.includes("dni")) alert(`Error en el registro, ya existe un usuario con el DNI ${userData.dni}`)
+            if(errorMessage.includes("email")) alert(`Error en el registro, ya existe un usuario con el email ${userData.email}`)
+
+            console.log(error.error)
+
         });
 }
 
-function logout() {
-    localStorage.removeItem('token');
-    showLoginForm();
-}
 
-// Inicializa Google Auth cuando se carga el script
-initGoogleAuth();
+// function logout() {
+//     localStorage.removeItem('user');
+//     isLoggedIn = false;
+// }

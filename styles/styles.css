@@ -12,14 +12,62 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100svh;
     }
 
+input, select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 40px;
+    padding-left: 16px;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    -webkit-appearance: none;  /* Safari y Chrome */
+    -moz-appearance: none;     /* Firefox */
+    appearance: none;          
+    }
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        }
+    select {
+        padding-left: 12px;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;  /* Firefox */
+        }
+        
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;  /* Chrome, Safari, Opera */
+            margin: 0;
+        }
+.first-option {
+    color: rgba(255, 0, 0, 0.5);
+
+}
 input:focus {
     outline: none;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.362);
+    }
 
-}
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    /* width: 80%; */
+    height: 44px;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    }
+
 button:hover {
     border: none;
     cursor: pointer;
@@ -30,61 +78,33 @@ button:hover {
     display: flex;
     width: 100vw;
     height: 100svh;
-    max-width: 400px;
+    /* max-width: 400px; */
     /* background-color: white; */
     /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+    overflow: hidden;
 }
 
 .container {
-    display: none;
-    padding: 0 20px;
-}
-
-/* LOGIN CONTAINER */
-#loginContainer, #registerContainer {
     position: relative;
-    display: flex;
+    display: none;
     flex-direction: column;
-    /* align-self: center; */
-    align-content: center;
+    align-items: center;
     justify-content: center;
     text-align: center;
     width: 100vw;
     height: 100svh;
-    padding:  0 70px;
+    padding: 0 20px;
     gap: 16px;
     color: white;
     background-color: rgba(1, 1, 43, 0.823);
 }
 
-#loginContainer input, #registerContainer input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 40px;
-    padding-left: 16px;
-    color: white;
-    border: none;
-    border-radius: 100px;
-    background-color: rgba(255, 255, 255, 0.2);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    }
-    input::placeholder {
-        color: rgba(255, 255, 255, 0.5);
-    }
+/* LOGIN CONTAINER ////////////////////////////////////////////////////////////////*/
 
-#loginContainer button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 40px;
-    color: white;
-    border: none;
-    border-radius: 100px;
-    }
+#loginContainer img {
+    margin-top: auto;
+    width: 200px;
+}
     #loginContainer h2 {
         margin-top: auto;
     }
@@ -101,9 +121,10 @@ button:hover {
         color: black;
     }
     #loginContainer span {
-        position: absolute;
+        /* position: absolute; */
         display: none;
         width: 400px;
+        height: 40px;
         padding: 0 50px;
         justify-self: center;
         align-self: center;
@@ -129,7 +150,7 @@ button:hover {
 }
 
 
-.photo-container {
+/* .photo-container {
     width: 150px;
     height: 150px;
     margin: 0 auto;
@@ -142,7 +163,7 @@ button:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
 #coverContainer {
     text-align: center;
@@ -156,8 +177,8 @@ button:hover {
 }
 
 
-/* REGISTER */
-#registerContainer h3 {
+/* REGISTER ////////////////////////////////////////////////////////////////*/
+#registerContainer h2 {
     font-weight: 600;
     font-size: 24px;
 }
@@ -166,32 +187,44 @@ button:hover {
     font-size: 16px;
 }
 #registerContainer .photo-container {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
     background-color: rgba(255, 255, 255, 0.2);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
-    border: 2px solid rgb(44, 120, 183);
-}
-#registerContainer button {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    width: 100%;
-    height: 40px;
-    color: white;
-    border: none;
-    border-radius: 100px;
+    border: 1px solid rgb(44, 120, 183);
+    box-shadow: inset 0 0 0 1px rgb(44, 120, 183); /* Borde interno de 2px de grosor y color negro */
+    overflow: hidden;
+
+    }
+    .photo-container img {
+        width: 105%;
+        /* height: 105%; */
+        border: none;
+    }
+    #load-photo-button {
+        color: black;
+        background-color: rgb(255, 200, 0);
+    }
+#register-submit-button {
     background-color: rgb(44, 120, 183);
     }
 
-#registerContainer select {
-    width: 100%;
-    height: 40px;
-    border: none;
-    border-radius: 100px;
-    padding-left: 12px;
-}
+#registerContainer .inputs-div {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    }
+    .inputs-div input, .inputs-div select {
+        width: 145px;
+    }
 
-/* ERROR CONTAINER  */
+
+/* ERROR CONTAINER  //////////////////////////////////////////////////////////*/
 #errorContainer {
     display: flex;
     align-items: center;
@@ -200,3 +233,61 @@ button:hover {
     #errorContainer h2 {
         text-align: center;
         }
+
+/* HOME PAGE //////////////////////////////////////////////////////////////// */
+header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 20px;
+    }
+    header img {
+        width: 60px;
+        height: 60px;
+        border-radius: 100px;
+        background-color: rgb(132, 132, 132);
+        border: 2px solid white;
+        }
+    header div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 8px;
+        }
+        header div p {
+            text-align: left;
+            }
+            #home-welcome {
+                font-size: 1.25rem;
+                }
+            #user-name {
+                font-weight: 200;
+            }
+nav {
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    height: min-content;
+}
+nav ul {
+    padding-top: 16px;
+    display: flex;
+    list-style: none;
+    width: 100%;
+    height: 40px;
+    justify-content: space-evenly;
+    overflow-x: auto;
+}
+    nav ul li {
+        width: 33%;
+    }
+#homeContainer {
+    display: flex;
+    width: 100%;
+    height: 100svh;
+    max-width: 400px;
+    background-color: cornflowerblue;
+    color: white;
+}

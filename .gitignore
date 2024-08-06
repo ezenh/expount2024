@@ -97,3 +97,9 @@ jspm_packages/
 *.sw?
 # Local Netlify folder
 .netlify
+
+node_modules/
+build/
+
+node_modules/
+.env

@@ -1,6 +1,4 @@
 require('dotenv').config();
-// const jwt = require('jsonwebtoken');
-
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -34,31 +32,11 @@ const UserSchema = new mongoose.Schema({
     lastName: { type: String, required: true },
     gender: { type: String, required: true },
     birthDate: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     school: { type: String, required: true },
 });
 
 const User = mongoose.model('User', UserSchema);
-
-// async function dropIndexes() {
-//     try {
-//         await User.collection.dropIndex('age_1');
-//         await User.collection.dropIndex('name_1');
-//         await User.collection.dropIndex('lastName_1');
-//         await User.collection.dropIndex('gender_1');
-//         await User.collection.dropIndex('birthDate_1');
-//         await User.collection.dropIndex('email_1');
-//         await User.collection.dropIndex('school_1');
-//         console.log('Índices eliminados');
-//     } catch (error) {
-//         console.error('Error al eliminar los índices:', error);
-//     } finally {
-//         mongoose.connection.close();
-//     }
-// }
-
-// dropIndexes();
-
 
 app.get('/users', async (req, res) => {
     try {
@@ -73,6 +51,19 @@ app.post('/users', async (req, res) => {
     try {
         const userData = req.body;
         console.log('Datos recibidos:', userData);
+        
+        // Verificar si ya existe un usuario con el mismo DNI
+        const existingUserDNI = await User.findOne({ dni: userData.dni });
+        if (existingUserDNI) {
+            return res.status(400).json({ success: false, error: 'Ya existe un usuario con este DNI' });
+        }
+        
+        // Verificar si ya existe un usuario con el mismo email
+        const existingUserEmail = await User.findOne({ email: userData.email });
+        if (existingUserEmail) {
+            return res.status(400).json({ success: false, error: 'Ya existe un usuario con este email' });
+        }
+        
         const user = new User(userData);
         await user.save();
         const token = jwt.sign({ userId: user._id }, SECRET_KEY);
@@ -94,7 +85,7 @@ app.post('/check-dni', async (req, res) => {
             res.json({ success: false, message: 'DNI no registrado' });
         }
     } catch (error) {
-        res.status(400).json({ success: false, error: error.message });
+        res.status(400).json({ success: false, message: error.message });
     }
 });
 
