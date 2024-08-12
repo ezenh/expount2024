@@ -607,7 +607,7 @@ nav ul {
                     .expand-icon-button img {
                         width: 10px;
                         transition: all .5s ease;
-
+                        z-index: -1;
                     }
 
             .institution-video {
