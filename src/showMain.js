@@ -310,7 +310,7 @@ function renderInstitutions(filter = "") {
                         <div class="institution-title">
                             <img src="./assets/img/${institution.logo}" alt="" class="institution-logo">
                             <h3 class="institution-name">${institution.name}</h3>
-                            <div class="expand-icon-button" onclick="institutionResize()">
+                            <div class="expand-icon-button">
                                 <img class="expand-icon" src="./assets/ico/down-arrow-white.png" alt="">
                             </div>
                         </div>
@@ -320,6 +320,7 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
+                    institutionArticle.querySelector('.expand-icon-button').addEventListener('click', institutionResize)
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
 
