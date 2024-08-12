@@ -319,7 +319,7 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
-                    Array.from(document.getElementsByClassName('expand-icon-button').children).forEach(el => {
+                    Array.from(document.getElementsByClassName('expand-icon-button')).forEach(el => {
                         console.log(el)
                         // el.addEventListener('click', institutionResize)
                     })
