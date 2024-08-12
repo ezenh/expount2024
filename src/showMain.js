@@ -319,10 +319,8 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
-                    Array.from(document.getElementsByClassName('expand-icon-button')).forEach(el => {
-                        console.log(el)
-                        // el.addEventListener('click', institutionResize)
-                    })
+                    let resizeButton = document.querySelector('expand-icon-button')
+                    console.log(resizeButton)
 
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
