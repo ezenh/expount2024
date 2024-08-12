@@ -143,3 +143,8 @@ button:hover {
         }
 
 /* HOME PAGE //////////////////////////////////////////////////////////////// */
+
+#api-bkg {
+    width: 100vw;
+    overflow: hidden;
+}
