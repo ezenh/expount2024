@@ -319,8 +319,7 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
-                    let resizeButton = document.querySelector('expand-icon-button')
-                    resizeButton.addEventListener('click', institutionResize)
+                    document.querySelector('expand-icon-button').addEventListener('click', institutionResize)
 
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
