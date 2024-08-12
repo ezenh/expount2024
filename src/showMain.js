@@ -386,12 +386,14 @@ renderInstitutions();
 
 
 function institutionResize() {
-    let article = event.target.parentNode.parentNode;
+    let pushedButton = target.event
+    console.log(pushedButton)
+    let article
 
-    if (target.event.className == 'expand-icon') {
-        article = event.target.parentNode.parentNode.parentNode
+    if (pushedButton.className == 'expand-icon') {
+        article = pushedButton.parentNode.parentNode.parentNode
     }else {
-        article = event.target.parentNode.parentNode
+        article = pushedButton.parentNode.parentNode
     }
     let video = article.querySelector('.institution-video');
     let careers = article.querySelector('.institution-careers');
