@@ -11,7 +11,7 @@ function showHome(user) {
             <div id="header-top">
                 <img id="user-photo" alt="user photo">
                 <div id="header-text-container">
-                    // <p id="home-welcome">Bienvenido</p>
+                    <p id="home-welcome">Bienvenido</p>
                     <p id="home-user">${user.name}</p>
                 </div>
                 <div id="expo-logo-header">
