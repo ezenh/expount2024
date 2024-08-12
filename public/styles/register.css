@@ -1,5 +1,6 @@
 #registerContainer {
     padding: 0 20px;
+    background-color: rgb(0,0,0,0);
 }
 #registerContainer div:nth-child(1) {
     display: flex;
