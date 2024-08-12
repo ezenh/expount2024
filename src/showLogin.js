@@ -15,7 +15,6 @@ function showLoginForm() {
         <span id="error-alert"></span>
 
         <button onclick="showRegisterForm()">Registrarse</button>
-        <video id="api-bkg" src="../assets/vid/neon-vector-bkg.mp4" preload="metadata" autoplay="autoplay" muted="on" loop="loop" type="video/mp4" playsinline>
     `;
     hideOtherContainers('loginContainer');
 

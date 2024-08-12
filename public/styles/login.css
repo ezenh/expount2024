@@ -83,7 +83,7 @@
 
 #loginContainer video, #registerContainer video, #api-bkg {
     position: absolute;
-    /* width: 100vw; */
+    width: 100vw;
     top: 0;
     left: 0;
     /* translate: -40%; */
