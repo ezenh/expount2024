@@ -13,7 +13,7 @@ function initLoginButton() {
     // } else {
         loadGoogleScript().then(() => {
             google.accounts.id.initialize({
-                client_id: googleClient_id,
+                client_id: "710446449605-6kvuci62ub95il6msl49gi0gnujsvbl4.apps.googleusercontent.com",
                 callback: handleCredentialResponse,
                 ux_mode: 'redirect'
             });
