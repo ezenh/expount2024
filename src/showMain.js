@@ -216,12 +216,6 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
         </footer>
     `
 
-    Array.from(document.getElementsByClassName('expand-icon-button').children).forEach(el => {
-        console.log(el)
-        // el.addEventListener('click', institutionResize)
-    })
-
-
     checkDate()
 
     if(user && user.photo != 'https://127.0.0.1:8080/placeholder.jpg') {
@@ -325,6 +319,10 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
+                    Array.from(document.getElementsByClassName('expand-icon-button').children).forEach(el => {
+                        console.log(el)
+                        // el.addEventListener('click', institutionResize)
+                    })
 
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
