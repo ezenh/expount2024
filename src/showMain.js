@@ -387,7 +387,7 @@ renderInstitutions();
 
 function institutionResize(event) {
     // let pushedButton = event.target
-    console.log(event.target)
+    console.log(event)
     let article
 
     if (pushedButton.className == 'expand-icon') {
