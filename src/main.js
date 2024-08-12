@@ -22,7 +22,7 @@ function init() {
 // 2 - AL CLICKEAR BOTON GOOGLE CHECKEA SI EXISTE EL USUARIO EN LA DB ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function checkUsersinDb(user) {
 
-    fetch(`http://localhost:3000/users`)
+    fetch(`https://expount2024.vercel.app/users`)
     .then(response => {
         if (!response.ok) {
             throw new Error('Red de respuesta no OK');
