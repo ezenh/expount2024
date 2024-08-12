@@ -4,7 +4,7 @@ isLoggedIn = false;
 
 function initLoginButton() {
     const savedUser = localStorage.getItem('user');
-    console.log(localStorage)
+    // console.log(localStorage)
 
     // if (savedUser) {
     //     isLoggedIn = true;
@@ -82,7 +82,7 @@ function handleCredentialResponse(response) {
             address: payload.address,
             updated_at: payload.updated_at
         };
-        console.log('Datos del usuario:', user);
+        // console.log('Datos del usuario:', user);
         checkUsersinDb(user)
         // showRegisterForm(user);
     } catch (error) {
