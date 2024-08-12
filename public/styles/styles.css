@@ -177,7 +177,6 @@ button:hover {
     height: 100%;
     gap: 16px;
     color: white;
-    background-color: var(--);
     overflow: hidden;
 }
 
