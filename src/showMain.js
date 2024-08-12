@@ -320,8 +320,6 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
-                    document.querySelector('.expand-icon-button').addEventListener('click', institutionResize);
-
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
 
@@ -381,6 +379,12 @@ document.getElementById("search-input").addEventListener("input", function () {
 // Render inicial sin ningún filtro
 renderInstitutions();
 
+// document.querySelector('.expand-icon-button').addEventListener('click', institutionResize);
+Array.from(document.getElementsByClassName('expand-icon-button').children).forEach (
+    el => {
+        el.addEventListener('click', institutionResize)
+    }
+)
 
     hideOtherContainers('homeContainer');
 }
