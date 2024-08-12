@@ -9,6 +9,7 @@ function showCover(user) {
     `;
     hideOtherContainers('coverContainer');
 
+    container.style.backgroundColor = 'rgba(1, 1, 43, 0.823)'
     setTimeout(() => {
         showHome(user);
     }, 3000);
