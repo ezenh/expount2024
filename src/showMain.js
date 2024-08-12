@@ -320,7 +320,7 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
-                    Array.from(document.getElementsByClassName('expand-icon-button').children).forEach(el => console.log(el))
+                    Array.from(document.getElementsByClassName('expand-icon-button')).forEach(el => console.log(el))
 
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
