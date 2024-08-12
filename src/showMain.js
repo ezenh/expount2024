@@ -319,8 +319,6 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
-                    document.querySelector('expand-icon-button').addEventListener('click', institutionResize)
-
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
 
@@ -362,6 +360,9 @@ function renderInstitutions(filter = "") {
                     institutionArticle.appendChild(moreButton);
 
                     institutionContainer.appendChild(institutionArticle);
+
+                    institutionArticle.querySelector('expand-icon-button').addEventListener('click', institutionResize)
+
                 }
             });
         }
