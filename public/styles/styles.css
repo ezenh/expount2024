@@ -148,5 +148,5 @@ button:hover {
 
 #api-bkg {
     overflow: hidden;
-    height: 100svh !important;
+    height: 100% !important;
 }
