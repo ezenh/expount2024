@@ -1,6 +1,9 @@
+const baseURL = 'https://expount2024.vercel.app';
+
+
 const api = {
     register: async (userData) => {
-        const response = await fetch(`http://localhost:3000/users`, {
+        const response = await fetch(`${baseURL}/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,7 +18,7 @@ const api = {
     },
 
     login: async (credentials) => {
-        const response = await fetch(`http://localhost:3000/login`, {
+        const response = await fetch(`${baseURL}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +29,7 @@ const api = {
     },
 
     checkDNI: async (dni) => {
-        const response = await fetch(`http://localhost:3000/check-dni`, {
+        const response = await fetch(`${baseURL}/check-dni`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -37,7 +40,7 @@ const api = {
     },
     
     // checkUser: async (dni, email) => {
-    //     const response = await fetch(`http://localhost:3000/check-dni`, {
+    //     const response = await fetch(`${baseURL}/check-dni`, {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json',
@@ -49,7 +52,7 @@ const api = {
 
     getUserData: async (userId) => {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:3000/user/${userId}`, {
+        const response = await fetch(`${baseURL}/user/${userId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -60,7 +63,7 @@ const api = {
 
     participarEnSorteo: async (userData) => {
         const token = localStorage.getItem('token'); // Verifica que el token se obtiene correctamente
-        const response = await fetch(`http://localhost:3000/participar`, {
+        const response = await fetch(`${baseURL}/participar`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
