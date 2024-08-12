@@ -218,7 +218,7 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
 
     Array.from(document.getElementsByClassName('expand-icon-button')).forEach(el => {
         console.log(el)
-        el.addEventListener('click', institutionResize)
+        // el.addEventListener('click', institutionResize)
     })
 
 
