@@ -202,8 +202,16 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', UserSchema);
 
-// Middleware para servir archivos estáticos desde la carpeta "public"
+// Servir archivos estáticos desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Servir archivos JavaScript desde la carpeta 'src'
+app.use('/src', express.static(path.join(__dirname, 'src')));
+
+// Tus otras rutas y lógica del servidor aquí
+
+
+
 
 // Rutas de la API
 app.get('/users', async (req, res) => {
