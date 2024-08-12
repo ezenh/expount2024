@@ -260,6 +260,7 @@ nav ul {
         display: flex;
         flex-direction: column;
         height: 100%;
+        width: 100vw;
         height: min-content;
         scroll-snap-align: center;
         padding: 0 20px 120px 20px;
