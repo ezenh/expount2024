@@ -28,7 +28,7 @@ function showRegisterForm(userData = {}) {
             </select>
         </div>
 
- 
+        <label for="birthDate">Fecha de Nacimiento</label>
         <input type="date" id="birthDate" name="birthDate" placeholder="Fecha de nacimiento" value="${userData.birthdate || ''}">
         <input type="email" id="email" placeholder="Email" value="${userData.email || ''}">
         <select class="select" id="school">
