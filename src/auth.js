@@ -1,16 +1,15 @@
 
 let googleClient_id = "710446449605-6kvuci62ub95il6msl49gi0gnujsvbl4.apps.googleusercontent.com"
-let isLoggedIn = false;
-
-let logedUser
-
-
+isLoggedIn = false;
 
 function initLoginButton() {
-    const savedUser = localStorage.getItem('');
+    const savedUser = localStorage.getItem('user');
+    console.log(localStorage)
 
     // if (savedUser) {
     //     isLoggedIn = true;
+    //     checkUsersinDb(savedUser)
+    //     console.log(savedUser)
     // } else {
         loadGoogleScript().then(() => {
             google.accounts.id.initialize({
@@ -36,18 +35,6 @@ function initLoginButton() {
         });
     // }
 }
-
-// function loadGoogleScript() {
-//     return new Promise((resolve, reject) => {
-//         const script = document.createElement('script');
-//         script.src = 'https://accounts.google.com/gsi/client';
-//         script.async = true;
-//         script.defer = true;
-//         script.onload = resolve;
-//         script.onerror = reject;
-//         document.head.appendChild(script);
-//     });
-// }
 
 function loadGoogleScript() {
     return new Promise((resolve, reject) => {
@@ -103,6 +90,8 @@ function handleCredentialResponse(response) {
         document.getElementById('login-status').textContent = 'Error en el inicio de sesión. Por favor, intente de nuevo.';
     }
 }
+
+
 function register(userData) {
     if (userData.password) {
         userData.password = CryptoJS.SHA256(userData.password).toString();
@@ -111,7 +100,9 @@ function register(userData) {
         .then(response => {
             if (response.success) {
                 localStorage.setItem('token', response.token);
-                showCover(response.user.name);
+                localStorage.setItem('user', userData.email)
+                console.log(Object.values(response.user)[0])
+                showCover(Object.values(response.user)[0]);
             } else {
                 console.error('Error en el registro:', response.error);
                 alert('Error en el registro: ' + response.error);
@@ -131,7 +122,7 @@ function register(userData) {
 }
 
 
-// function logout() {
-//     localStorage.removeItem('user');
-//     isLoggedIn = false;
-// }
+function logout() {
+    localStorage.removeItem('user');
+    isLoggedIn = false;
+}

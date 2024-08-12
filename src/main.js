@@ -2,50 +2,26 @@
 
 document.addEventListener('DOMContentLoaded', init);
 
+
 let userData = {}
 // 1 - CARGA DE PANTALLA LOGIN ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function init() {
-    // initGoogleAuth();
     initLoginButton()
-    checkGeolocation()
-        .then(() => {
-            showLoginForm();
-        })
-        .catch((error) => {
-            showErrorMessage("Solo los participantes de la EXPO UNT 2024 pueden acceder al contenido de este sitio.");
-        });
-}
-// 1A - CARGA CONTENIDO DE PANTALLA LOGIN //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function showLoginForm() {
-    const container = document.getElementById('loginContainer');
-    container.style.display = 'flex';
-    // <h2>EXPO UNT 2024</h2>
-
-    container.innerHTML = `
-        <img src="../assets/img/expo2024_logo.png">
-        <input type="number" id="dni" placeholder="Ingresa tu DNI" onclick"clean-error()">
-        <button onclick="checkDNI()">Ingresar</button>
-        <div id="google-login"></div>
-        <span id="error-alert"></span>
-
-        <button onclick="showRegisterForm()">Registrarse</button>
-
-        <video src="../assets/vid/UNTbkg.mp4" autoplay muted loop>
-    `;
-    hideOtherContainers('loginContainer');
-
-    setTimeout(() => {
-        document.getElementById("error-alert").style.display = 'flex'
-    }, 500);
-
-    dni.addEventListener('input', () => {
-        document.getElementById("error-alert").innerText = ''
-
-    })
+    showLoginForm();
+    // showRegisterForm()
+    // showHome()
+    // checkGeolocation()
+    //     .then(() => {
+    //         showLoginForm();
+    //     })
+    //     .catch((error) => {
+    //         showErrorMessage("Solo los participantes de la EXPO UNT 2024 pueden acceder al contenido de este sitio.");
+    //     });
 }
 
 // 2 - AL CLICKEAR BOTON GOOGLE CHECKEA SI EXISTE EL USUARIO EN LA DB ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function checkUsersinDb(user) {
+
     fetch(`http://localhost:3000/users`)
     .then(response => {
         if (!response.ok) {
@@ -54,25 +30,22 @@ function checkUsersinDb(user) {
         return response.json();
     })
     .then(data => {
-        console.log('Datos recibidos del servidor:', data);
+        // console.log('Datos recibidos del servidor:', data);
 
         let matchedUser = false
         for(userindb of data) {
-            if(user.email === userindb.email || user.dni === userindb.dni) {
-                console.log(user)
+            if(user === userindb.email || user.dni === userindb.dni || user.email === userindb.email ) {
                 matchedUser = true
+                showHome(userindb)
             }
         }
         setTimeout(() => {
-            console.log(matchedUser)
-            if(matchedUser) {
+            // console.log(matchedUser)
+            if(!matchedUser) {
                 // SI LO ENCUENTRA => PANTALLA DE BIENVENIDA
-                console.log('usuario encontrado')
-                showCover(userindb)
-            }else{
                 // SI NO LO ENCUENTRA => PANTALLA PARA COMPLETAR FORMULARIO PRECARGANDO DATOS EXTRAIDOS DE LA CUENTA DE GOOGLE
                 console.log('usuario no encontrado')
-                showRegisterForm(userindb)
+                showRegisterForm(user)
             }
         }, 500);
 
@@ -82,79 +55,12 @@ function checkUsersinDb(user) {
     });
 }
 
-// 2A - USUARIO NO ENCONTRADO EN LA DB / CREAR NUEVO USUARIO => PANTALLA REGISTER /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function showRegisterForm(userData = {}) {
-    const container = document.getElementById('registerContainer');
-    container.style.display = 'flex';
-    container.innerHTML = `
-        <h2>Registro EXPO UNT 2024</h2>
-        <h4>Para ver todo el contenido y participar del sorteo</h4>
-        <div class="photo-container">
-            <img id="userPhoto" src="${userData.picture|| 'placeholder.jpg'}">
-        </div>
-        <button id="load-photo-button" onclick="capturePhoto()">Tomar foto</button>
-        <input type="text" id="name" placeholder="Nombre" value="${userData.given_name || 'eze'}">
-        <input type="text" id="lastName" placeholder="Apellido" value="${userData.family_name || 'nh'}">
-
-        <div class="inputs-div">
-            <input type="number" id="nDni" placeholder="DNI" value="${userData.dni || '7697657'}">
-            <select class="select" id="gender" }>
-                <option value="${userData.gender || 'male'}">Selecciona tu género</option>
-                <option value="male">Masculino</option>
-                <option value="female">Femenino</option>
-                <option value="other">Otro</option>
-            </select>
-        </div>
-
- 
-        <input type="date" id="birthDate" placeholder="Fecha de nacimiento" value="${userData.birthdate || '1987-08-26'}">
-        <input type="email" id="email" placeholder="Email" value="${userData.email || 'ezenh87@gmail.com'}">
-        <select class="select" id="school">
-            <option class="first-option" value="">Selecciona tu escuela</option>
-            <option value="escuela1">Escuela 1</option>
-            <option value="escuela2">Escuela 2</option>
-        </select>
-        <button id="register-submit-button" onclick="submitRegistration()">Enviar</button>
-        <video src="../assets/vid/UNTbkg.mp4" autoplay muted loop>
-
-    `;
-    hideOtherContainers('registerContainer');
-}
-
-// 3 - PANTALLA COVER
-function showCover(user) {
-    const container = document.getElementById('coverContainer');
-    container.style.display = 'flex';
-    container.innerHTML = `<h2>Bienvenido ${user.name} a la EXPO UNT 2024</h2>`;
-    hideOtherContainers('coverContainer');
-    console.log(userData)
-
-    setTimeout(() => {
-        showHome(user);
-    }, 3000);
-}
-
-// 4 - PANTALLA HOME/BIENVENIDA /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function showHome(user) {
-    console.log(user)
-    const container = document.getElementById('homeContainer');
-    container.style.display = 'flex';
-    container.innerHTML = `
-        <img src="${user.photo}">
-        <h2>Bienvenido, ${user.name}</h2>
-        <p>Aquí irá el contenido principal de la aplicación.</p>
-        <button onclick="logout()">Cerrar sesión</button>
-    `;
-    hideOtherContainers('homeContainer');
-}
 
 // FUNCIONES EXTRAS
 // Checkear DNI ingresado en Login
 function checkDNI() {
     const dni = document.getElementById('dni').value;
     if (!dni) {
-        console.log(logedUser)
-
         document.getElementById("error-alert").style.display = 'flex'
         document.getElementById("error-alert").innerText = "Por favor, ingrese su DNI"
         return;
@@ -162,7 +68,8 @@ function checkDNI() {
     api.checkDNI(dni)
         .then(response => {
             if (response.success) {
-                showCover(response.user.name);
+                // console.log('checkDNI devuelve: ', Object.values(response.user)[0])
+                showCover(Object.values(response.user)[0]);
             } else {
                 document.getElementById("error-alert").style.display = 'flex'
                 document.getElementById("error-alert").innerText = "El DNI ingresado no coincide con ningún usuario registrado en la EXPO UNT 2024"
@@ -179,6 +86,7 @@ function checkDNI() {
 window.checkDNI = checkDNI;
 
 
+// Corroborar Inputs de Register
 
 // Enviar los datos del formulario de REGISTER
 function submitRegistration() {
@@ -191,9 +99,12 @@ function submitRegistration() {
         birthDate: document.getElementById('birthDate').value,
         email: document.getElementById('email').value,
         school: document.getElementById('school').value,
+        sorteo: 'false',
     };
 
     if (Object.values(userData).every(value => value)) {
+        console.log('todos completos')
+        document.getElementById('register-submit-button').className = 'button-highlight'
         register(userData);
     } else {
         alert('Por favor, complete todos los campos');
@@ -214,10 +125,13 @@ function showErrorMessage(message) {
 }
 
 function hideOtherContainers(exceptId) {
-    const containers = ['loginContainer', 'registerContainer', 'coverContainer', 'homeContainer', 'errorContainer'];
+    const containers = ['qrCamContainer', 'loginContainer', 'registerContainer', 'coverContainer', 'homeContainer', 'errorContainer'];
     containers.forEach(id => {
         if (id !== exceptId) {
             document.getElementById(id).style.display = 'none';
+        }else{
+            document.getElementById(id).style.display = 'flex';
+
         }
     });
 }
@@ -231,11 +145,191 @@ function capturePhoto() {
     }
 }
 
+// CAREERS
+
+function scrollToItem(id) {
+    const container = document.getElementById('scroll-container');
+    const element = document.getElementById(id);
+    const containerWidth = container.clientWidth;
+    const elementWidth = element.clientWidth;
+    const scrollPosition = element.offsetLeft - (containerWidth / 2) + (elementWidth / 2);
+    container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+    });
+
+    setTimeout(() => {
+        navBarSelection(id)
+
+    }, 400);
+}
+
+function navBarSelection(id) {
+    let index = 0
+
+    switch(id) {
+        case 'home-content':
+        index = 0;
+        break;
+
+        case 'students-content':
+        index = 1;
+        break;
+
+        case 'careers-content':
+        index = 2;
+        break;
+    }
+
+    let navButtons = Array.from(document.getElementsByClassName("navButtons"))
+    navButtons.forEach(navButton => {
+        if (navButtons.indexOf(navButton) === index) {
+            navButton.style.fontSize = '17px'
+            navButton.style.color = 'var(--expo-blue)'
+            navButton.style.borderBottom = '3px solid rgb(2, 175, 239,1)'
+        }else {
+            navButton.style.fontSize = '16px'
+            navButton.style.color = 'rgb(255, 255, 255, .5)'
+            navButton.style.borderBottom = '3px solid rgb(2, 175, 239,0)'
+        }
+    })
+}
+
+/////////////////////////////////////////////////////////////////////
 
 
-// document.addEventListener('DOMContentLoaded', fetchUsers)
+function toggleDarkMode() {
+    const isDarkMode = document.documentElement.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    updateToggleButton(isDarkMode);
+    updateLogoAndStyles(isDarkMode);
+}
+
+function updateToggleButton(isDarkMode) {
+    const toggle = document.getElementById('toggle');
+    const toggleButton = document.getElementById('toggleButton');
+    
+    if (isDarkMode) {
+        toggle.style.backgroundColor = 'rgb(0,0,0)';
+        toggleButton.style.left = '1px';
+    } else {
+        toggle.style.backgroundColor = 'rgb(2, 175, 239)';
+        toggleButton.style.left = '35px';
+    }
+}
+
+function updateLogoAndStyles(isDarkMode) {
+    const footer_untlogo = document.getElementById('footer_untlogo');
+    const descriptionElements = document.querySelectorAll('.description');
+    
+    if (isDarkMode) {
+        footer_untlogo.src = '../assets/img/unt-logo-new-gray.png';
+        descriptionElements.forEach(el => el.style.fontWeight = '200');
+    } else {
+        footer_untlogo.src = '../assets/img/unt-logo-new.png';
+        descriptionElements.forEach(el => el.style.fontWeight = '400');
+    }
+}
 
 
 
+
+function checkDate() {
+
+    let days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+    let horarios = ['09:30', '10:15', '11:00', '11:15', '12:00', '15:00', '09:00', '10:00', '11:00', '15:00' ]
+    let agenda = Array.from(document.getElementsByClassName('crono-time'))
+
+    setInterval(() => {
+        const date = new Date()
+
+        const day = days[(date.getDay())]
+        const dayOfMonth = date.getDate();
+        const month = date.getMonth()
+        const year = date.getFullYear
+    
+        const hours = date.getHours()
+        const minutes = date.getMinutes()
+
+        if( day === "Miércoles" && dayOfMonth === "14" ) {
+            document.querySelector('.cronogram-first').innerText = "Hoy"
+            if(hours == 9 && minutes >= 30) {
+                agenda[0].innerText = "AHORA!"
+            }else{
+                agenda[0].innerText = horarios[0]
+            }
+
+            if(hours == 10 && minutes >= 15) {
+                agenda[1].innerText = "AHORA!"
+            }else{
+                agenda[1].innerText = horarios[1]
+            }
+
+            if(hours == 11) {
+                agenda[2].innerText = "AHORA!"
+            }else{
+                agenda[2].innerText = horarios[2]
+            }
+
+            if(hours == 11 && minutes >= 15) {
+                agenda[3].innerText = "AHORA!"
+            }else{
+                agenda[3].innerText = horarios[3]
+            }
+
+            if(hours == 12) {
+                agenda[4].innerText = "AHORA!"
+            }else{
+                agenda[4].innerText = horarios[4]
+            }
+                
+            if(hours == 15) {
+                agenda[5].innerText = "AHORA!"
+            }else{
+                agenda[5].innerText = horarios[5]
+            }
+        }else{
+            document.querySelector('.cronogram-first').innerText = "Miércoles 14 de Agosto"
+        }
+
+        if( day === "Jueves" && dayOfMonth === "15" ) {
+            document.querySelector('.cronogram-second').innerText = "Hoy"
+            if(hours == 9) {
+                agenda[6].innerText = "AHORA!"
+            }else{
+                agenda[6].innerText = horarios[6]
+            }
+
+            if(hours == 10) {
+                agenda[7].innerText = "AHORA!"
+            }else{
+                agenda[7].innerText = horarios[7]
+            }
+
+            if(hours == 11) {
+                agenda[8].innerText = "AHORA!"
+            }else{
+                agenda[8].innerText = horarios[8]
+            }
+
+            if(hours == 15) {
+                agenda[9].innerText = "AHORA!"
+            }else{
+                agenda[9].innerText = horarios[9]
+            }
+        }else{
+            document.querySelector('.cronogram-second').innerText = "Jueves 15 de Agosto"
+        }
+
+        if( day === "Domingo" && dayOfMonth === 11 ) {
+            // console.log(document.querySelector('.cronogram-second'))
+            document.querySelector('.cronogram-second').innerText = "Hoy"
+            if(hours == 11) {
+                agenda[8].innerText = "AHORA!"
+                // document.querySelector('.cronogram-second').className = ".cronogram-second highlighted"
+                }
+            }
+    }, 1000);
+}
 
 

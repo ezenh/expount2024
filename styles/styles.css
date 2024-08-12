@@ -1,3 +1,33 @@
+:root {
+    --expo-blue: rgb(2, 175, 239);
+    --expo-blue-t: rgb(2, 175, 239, .6);
+
+    --expo-pink: rgb(243, 7, 127);
+    --expo-pink-t: rgb(243, 7, 127, .3);
+
+    --unt-blue: rgb(0, 32, 255);
+    --footer: rgb(51, 51, 51, .7);
+}
+
+@keyframes scanButton {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+#scanButton:hover {
+    box-shadow: none;
+    }
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,6 +43,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100svh;
+    background-color: var(--background-color);
+    color: var(--text-color);
     }
 
 input, select {
@@ -57,16 +89,21 @@ input:focus {
     }
 
 button {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 300px;
-    /* width: 80%; */
     height: 44px;
     color: white;
     border: none;
     border-radius: 100px;
+    /* overflow: hidden; */
     }
+    button:hover {
+        mix-blend-mode:luminosity;
+        }
+
 
 button:hover {
     border: none;
@@ -78,9 +115,6 @@ button:hover {
     display: flex;
     width: 100vw;
     height: 100svh;
-    /* max-width: 400px; */
-    /* background-color: white; */
-    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
     overflow: hidden;
 }
 
@@ -93,136 +127,10 @@ button:hover {
     text-align: center;
     width: 100vw;
     height: 100svh;
-    padding: 0 20px;
     gap: 16px;
     color: white;
     background-color: rgba(1, 1, 43, 0.823);
 }
-
-/* LOGIN CONTAINER ////////////////////////////////////////////////////////////////*/
-
-#loginContainer img {
-    margin-top: auto;
-    width: 200px;
-}
-    #loginContainer h2 {
-        margin-top: auto;
-    }
-    #loginContainer button:nth-child(3) {
-        background-color: rgb(44, 120, 183);
-    }
-    #loginContainer button:nth-child(4) {
-        color: black;
-    }
-    #loginContainer button:nth-child(6) {
-        margin-top: auto;
-        margin-bottom: 40px;
-        background-color: rgb(210, 210, 210);
-        color: black;
-    }
-    #loginContainer span {
-        /* position: absolute; */
-        display: none;
-        width: 400px;
-        height: 40px;
-        padding: 0 50px;
-        justify-self: center;
-        align-self: center;
-        top: calc((50% + 80px));
-        font-size: 12px;
-        color: red;
-        text-align: center;
-        justify-content: center;
-        margin-top: -8px;
-    }
-
-#loginContainer button img {
-    height: 100%;
-}
-
-#loginContainer video, #registerContainer video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    translate: -40%;
-    height: 100svh;
-    z-index: -10;
-}
-
-
-/* .photo-container {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.photo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} */
-
-#coverContainer {
-    text-align: center;
-    font-size: 24px;
-    animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-
-/* REGISTER ////////////////////////////////////////////////////////////////*/
-#registerContainer h2 {
-    font-weight: 600;
-    font-size: 24px;
-}
-#registerContainer h4 {
-    font-weight: 300;
-    font-size: 16px;
-}
-#registerContainer .photo-container {
-    display: flex;
-    justify-content: center;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-
-    background-color: rgba(255, 255, 255, 0.2);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgb(44, 120, 183);
-    box-shadow: inset 0 0 0 1px rgb(44, 120, 183); /* Borde interno de 2px de grosor y color negro */
-    overflow: hidden;
-
-    }
-    .photo-container img {
-        width: 105%;
-        /* height: 105%; */
-        border: none;
-    }
-    #load-photo-button {
-        color: black;
-        background-color: rgb(255, 200, 0);
-    }
-#register-submit-button {
-    background-color: rgb(44, 120, 183);
-    }
-
-#registerContainer .inputs-div {
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
-    }
-    .inputs-div input, .inputs-div select {
-        width: 145px;
-    }
-
 
 /* ERROR CONTAINER  //////////////////////////////////////////////////////////*/
 #errorContainer {
@@ -235,59 +143,3 @@ button:hover {
         }
 
 /* HOME PAGE //////////////////////////////////////////////////////////////// */
-header {
-    position: fixed;
-    display: flex;
-    top: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 10px 20px;
-    }
-    header img {
-        width: 60px;
-        height: 60px;
-        border-radius: 100px;
-        background-color: rgb(132, 132, 132);
-        border: 2px solid white;
-        }
-    header div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-left: 8px;
-        }
-        header div p {
-            text-align: left;
-            }
-            #home-welcome {
-                font-size: 1.25rem;
-                }
-            #user-name {
-                font-weight: 200;
-            }
-nav {
-    position: fixed;
-    top: 80px;
-    width: 100%;
-    height: min-content;
-}
-nav ul {
-    padding-top: 16px;
-    display: flex;
-    list-style: none;
-    width: 100%;
-    height: 40px;
-    justify-content: space-evenly;
-    overflow-x: auto;
-}
-    nav ul li {
-        width: 33%;
-    }
-#homeContainer {
-    display: flex;
-    width: 100%;
-    height: 100svh;
-    max-width: 400px;
-    background-color: cornflowerblue;
-    color: white;
-}

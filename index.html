@@ -4,26 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EXPO UNT - Checkin App</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles/qrCam.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/register.css">
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
+        <div id="qrCamContainer"></div>
         <div id="loginContainer" class="container"></div>
         <div id="registerContainer" class="container"></div>
         <div id="coverContainer" class="container"></div>
         <div id="homeContainer" class="container"></div>
         <div id="errorContainer" class="container"></div>
+        <video id="api-bkg" src="../assets/vid/neon-vector-bkg.mp4" preload="metadata" autoplay="autoplay" muted="on" loop="loop" type="video/mp4" playsinline>
+
     </div>
-    <!-- <script src="https://apis.google.com/js/platform.js?onload=onGoogleScriptLoad" async defer></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <!-- <script>
-        window.googleClientId = '710446449605-j96eqitecmr9op1a2vebja92ci15m0cu.apps.googleusercontent.com'; // Reemplaza con tu Google Client ID
-    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+
+    <script src="src/arraysUNT.js"></script>
+    <script src="src/showQRCam.js"></script>
+    <script src="src/showLogin.js"></script>
+    <script src="src/showCover.js"></script>
+    <script src="src/showRegister.js"></script>
+    <script src="src/showMain.js"></script>
+    <script src="src/showCam.js"></script>
+
+
+    <script src="src/qr.js"></script>
     <script src="src/config.js"></script>
     <script src="src/api.js"></script>
     <script src="src/auth.js"></script>

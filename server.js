@@ -35,6 +35,7 @@ const UserSchema = new mongoose.Schema({
     birthDate: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     school: { type: String, required: true },
+    sorteo: { type: Boolean, default: false, required: true }
 });
 
 const User = mongoose.model('User', UserSchema);
@@ -68,7 +69,7 @@ app.post('/users', async (req, res) => {
         const user = new User(userData);
         await user.save();
         const token = jwt.sign({ userId: user._id }, SECRET_KEY);
-        res.json({ success: true, token, user: { name: user.name, email: user.email } });
+        res.json({ success: true, token, user: { user } });
     } catch (error) {
         console.error('Error al guardar el usuario:', error);
         res.status(400).json({ success: false, error: error.message });
@@ -81,7 +82,7 @@ app.post('/check-dni', async (req, res) => {
         const user = await User.findOne({ dni });
         if (user) {
             const token = jwt.sign({ userId: user._id }, SECRET_KEY);
-            res.json({ success: true, token, user: { name: user.name, email: user.email } });
+            res.json({ success: true, token, user: { user } });
         } else {
             res.json({ success: false, message: 'DNI no registrado' });
         }
@@ -100,7 +101,7 @@ app.post('/login-google', async (req, res) => {
             await user.save();
         }
         const token = jwt.sign({ userId: user._id }, SECRET_KEY);
-        res.json({ success: true, token, user: { name: user.name, email: user.email } });
+        res.json({ success: true, token, user: { user } });
     } catch (error) {
         res.status(400).json({ success: false, error: error.message });
     }
@@ -110,7 +111,7 @@ app.get('/user/:id', authenticateToken, async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
         if (user) {
-            res.json({ success: true, user: { name: user.name, email: user.email } });
+            res.json({ success: true, user: { user } });
         } else {
             res.status(404).json({ success: false, error: 'Usuario no encontrado' });
         }
@@ -118,6 +119,30 @@ app.get('/user/:id', authenticateToken, async (req, res) => {
         res.status(400).json({ success: false, error: error.message });
     }
 });
+
+
+
+app.post('/participar', authenticateToken, async (req, res) => {
+    console.log('Solicitud recibida en /participar');
+
+    try {
+        const userId = req.body.userId; // Extrae userId desde el cuerpo de la solicitud
+        const user = await User.findByIdAndUpdate(
+            userId,
+            { sorteo: true },
+            { new: true }
+        );
+
+        if (!user) {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+
+        res.json({ message: 'Participación registrada con éxito', user });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
