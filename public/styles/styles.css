@@ -150,7 +150,7 @@ button:hover {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 110%;
     overflow: hidden;
     height: 100% !important;
     z-index: -100;
