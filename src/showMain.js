@@ -320,7 +320,7 @@ function renderInstitutions(filter = "") {
                     `;
 
                     let resizeButton = document.querySelector('expand-icon-button')
-                    console.log(resizeButton)
+                    resizeButton.addEventListener('click', institutionResize)
 
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
