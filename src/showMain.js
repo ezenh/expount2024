@@ -216,6 +216,8 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
         </footer>
     `
 
+    Array.from(document.getElementsByClassName('expand-icon-button')).forEach(el => console.log(el))
+
 
     checkDate()
 
@@ -320,7 +322,6 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
-                    Array.from(document.getElementsByClassName('expand-icon-button')).forEach(el => console.log(el))
 
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
