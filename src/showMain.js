@@ -320,6 +320,8 @@ function renderInstitutions(filter = "") {
                         <div class="institution-bkg"></div>
                     `;
 
+                    document.getElementsByClassName('expand-icon-button').forEach(el => console.log(el))
+
                     const careersContainer = document.createElement("div");
                     careersContainer.className = "institution-careers";
 
@@ -379,7 +381,6 @@ document.getElementById("search-input").addEventListener("input", function () {
 // Render inicial sin ningún filtro
 renderInstitutions();
 
-document.getElementsByClassName('expand-icon-button').forEach(el => console.log(el))
     hideOtherContainers('homeContainer');
 }
 
