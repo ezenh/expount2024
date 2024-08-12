@@ -386,7 +386,7 @@ renderInstitutions();
 
 
 function institutionResize() {
-    let pushedButton = target.event
+    let pushedButton = event.target
     console.log(pushedButton)
     let article
 
