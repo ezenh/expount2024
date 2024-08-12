@@ -28,7 +28,7 @@ article {
         color: var(--expo-pink);
     }
 
-h2:not(#sorteo-title, #cronogram, #register-title, #cover-title), h3, p:not(#home-welcome, #home-user, .footer-text p:nth-child(2), .description, #scanButton) {
+h2:not(#sorteo-title, #cronogram, #register-title, #cover-title), h3:not(#students-content article h3 ), p:not(#home-welcome, #home-user, .footer-text p:nth-child(2), .description, #scanButton) {
     color: var(--text-color);
     font-weight: var(--text-weight);
 
