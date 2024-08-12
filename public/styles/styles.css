@@ -176,7 +176,7 @@ button:hover {
     gap: 16px;
     color: white;
     overflow: hidden;
-    background-color: var(--background-color);
+    background-color: var(--home-bkg);
 
 }
 
