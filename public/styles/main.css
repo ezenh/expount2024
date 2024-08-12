@@ -337,7 +337,7 @@ nav ul {
     }
     #home-content li, #sorteo-description {
         margin-top: 16px;
-        /* background-color: var(--article-background); */
+        background-color: var(--article-background);
         padding: 12px;
         border-radius: 20px;
         }
