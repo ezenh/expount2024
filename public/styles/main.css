@@ -19,7 +19,7 @@
     --border-color: white;
 
     --main-nav-background: rgba(29, 29, 31, .4);
-    --home-bkg: rgba(255, 255, 255, 0.9);
+    --home-bkg: rgba(255, 255, 255, 0.6);
 
 
 
@@ -43,7 +43,7 @@
     --border-color: darkgrey;
 
     --main-nav-background: rgba(29, 29, 31, .6);
-    --home-bkg: rgba(29, 29, 31, .6);
+    --home-bkg: rgba(1, 1, 43, 0.823);
 
     --footer-text-color: grey;
     --description-color: white;
@@ -249,8 +249,6 @@ nav ul {
     scroll-snap-type: x mandatory;
     gap: 24px;
     transition: all .5s ease;
-    background-color: var(--home-bkg);
-    /* z-index: 10000; */
 
 }
     #homeContainer main section {
