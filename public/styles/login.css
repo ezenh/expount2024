@@ -84,14 +84,14 @@
     height: 100%;
 }
 
-#loginContainer video, #registerContainer video, #api-bkg {
+/* #loginContainer video, #registerContainer video, #api-bkg {
     position: absolute;
     width: 100vw;
     top: 0;
     left: 0;
     height: 100svh;
     z-index: -1000 !important;
-}
+} */
 
 #coverContainer {
     text-align: center;
