@@ -380,12 +380,12 @@ document.getElementById("search-input").addEventListener("input", function () {
 renderInstitutions();
 
 // document.querySelector('.expand-icon-button').addEventListener('click', institutionResize);
-Array.from(document.getElementsByClassName('expand-icon-button').children).forEach (
-    el => {
-        console.log(el)
-        // el.addEventListener('click', institutionResize)
-    }
-)
+// Array.from(document.getElementsByClassName('expand-icon-button').children).forEach (
+//     el => {
+//         console.log(el)
+//         // el.addEventListener('click', institutionResize)
+//     }
+// )
 
     hideOtherContainers('homeContainer');
 }
