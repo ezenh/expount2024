@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLogoAndStyles(true);
     }
 });
-    // toggleDarkMode()
+    toggleDarkMode()
 
 
 
