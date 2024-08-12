@@ -1,3 +1,6 @@
+#loginContainer {
+    background-color: rgb(0,0,0,0);
+}
 #login-img-container img {
     /* position: absolute; */
     /* width: 200px; */
@@ -81,21 +84,20 @@
     height: 100%;
 }
 
-/* #loginContainer video, #registerContainer video, #api-bkg {
+#loginContainer video, #registerContainer video, #api-bkg {
     position: absolute;
     width: 100vw;
     top: 0;
     left: 0;
     height: 100svh;
     z-index: -1000 !important;
-} */
+}
 
 #coverContainer {
     text-align: center;
     font-size: 24px;
     animation: fadeIn 2s;
     padding: 0 20px;
-    background-color: rgba(1, 1, 43, 0) ;
 }
 
 
