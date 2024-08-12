@@ -131,7 +131,7 @@ button:hover {
     height: 100%;
     gap: 16px;
     color: white;
-    background-color: rgba(1, 1, 43, 0.823);
+    /* background-color: rgba(1, 1, 43, 0.823); */
     overflow: hidden;
 }
 
