@@ -15,6 +15,9 @@
     --contrast-text-color: rgb(65, 65, 65);
 
     --text-color: rgb(76, 76, 76);
+    --text-weight: 300;
+
+
     --article-background: rgba(188, 188, 188, 0.3);
     --border-color: white;
 
@@ -39,6 +42,9 @@
     --contrast-text-color: rgb(245, 245, 246);
 
     --text-color: rgb(189, 189, 189);
+    --text-weight: 400;
+
+
     --article-background: rgba(163, 163, 163, 0.1);
     --border-color: darkgrey;
 

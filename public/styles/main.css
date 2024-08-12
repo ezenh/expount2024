@@ -30,6 +30,7 @@ article {
 
 h2:not(#sorteo-title, #cronogram, #register-title, #cover-title), h3, p:not(#home-welcome, #home-user, .footer-text p:nth-child(2), .description, #scanButton) {
     color: var(--text-color);
+    font-weight: var(--text-weight);
 
 }
 
@@ -43,7 +44,7 @@ h2:not(#sorteo-title, #cronogram, #register-title, #cover-title), h3, p:not(#hom
 
 .description {
     color: var(--description-color);
-    font-weight: var(--description-weight, 400);
+    font-weight: var(--text-weight);
 }
 
 .box-bkg {
