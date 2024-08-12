@@ -19,7 +19,7 @@ article {
 
 .cronogram-li {
     color: var(--contrast-text-color);
-    background-color: var(--article-background);
+    /* background-color: var(--article-background); */
     transition: all .5s ease;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
