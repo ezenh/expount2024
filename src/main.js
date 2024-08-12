@@ -224,7 +224,7 @@ function updateLogoAndStyles(isDarkMode) {
     
     if (isDarkMode) {
         footer_untlogo.src = '../assets/img/unt-logo-new-gray.png';
-        descriptionElements.forEach(el => el.style.fontWeight = '200');
+        descriptionElements.forEach(el => el.style.fontWeight = '400');
     } else {
         footer_untlogo.src = '../assets/img/unt-logo-new.png';
         descriptionElements.forEach(el => el.style.fontWeight = '400');
