@@ -386,6 +386,7 @@ renderInstitutions();
 
 
 function institutionResize() {
+    console.log(event.target)
     let article = event.target.parentNode.parentNode;
     let video = article.querySelector('.institution-video');
     let careers = article.querySelector('.institution-careers');
