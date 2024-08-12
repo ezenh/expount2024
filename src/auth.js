@@ -14,7 +14,8 @@ function initLoginButton() {
         loadGoogleScript().then(() => {
             google.accounts.id.initialize({
                 client_id: googleClient_id,
-                callback: handleCredentialResponse
+                callback: handleCredentialResponse,
+                ux_mode: 'redirect'
             });
 
             google.accounts.id.renderButton(
