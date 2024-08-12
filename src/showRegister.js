@@ -29,7 +29,7 @@ function showRegisterForm(userData = {}) {
         </div>
 
  
-        <input type="date" id="birthDate" placeholder="Fecha de nacimiento" value="${userData.birthdate || ''}">
+        <input type="date" id="birthDate" name="birthDate" placeholder="Fecha de nacimiento" value="${userData.birthdate || ''}">
         <input type="email" id="email" placeholder="Email" value="${userData.email || ''}">
         <select class="select" id="school">
             <option class="first-option" value="">Seleccioná tu escuela</option>

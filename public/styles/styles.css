@@ -79,10 +79,7 @@ input, select {
             -webkit-appearance: none;  /* Chrome, Safari, Opera */
             margin: 0;
         }
-.first-option {
-    color: rgba(255, 0, 0, 0.5);
 
-}
 input:focus {
     outline: none;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.362);
@@ -154,7 +151,7 @@ button:hover {
     position: absolute;
     top: 0;
     left: 0;
-    height: 110%;
+    height: 120%;
     overflow: hidden;
     height: 100% !important;
     z-index: -100;
