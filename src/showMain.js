@@ -309,7 +309,7 @@ function renderInstitutions(filter = "") {
                         <div class="institution-title">
                             <img src="./assets/img/${institution.logo}" alt="" class="institution-logo">
                             <h3 class="institution-name">${institution.name}</h3>
-                            <div class="expand-icon-button">
+                            <div class="expand-icon-button" onclick="institurionResize">
                                 <img class="expand-icon" src="./assets/ico/down-arrow-white.png" alt="">
                             </div>
                         </div>
@@ -358,10 +358,6 @@ function renderInstitutions(filter = "") {
                     moreButton.target = "_blank";
                     moreButton.textContent = "Ver más";
                     institutionArticle.appendChild(moreButton);
-
-                    institutionContainer.appendChild(institutionArticle);
-
-                    institutionArticle.querySelector('.expand-icon-button').addEventListener('click', institutionResize)
 
                 }
             });
