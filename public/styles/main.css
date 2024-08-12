@@ -492,9 +492,9 @@ nav ul {
         height: 60px;
         filter: drop-shadow(0 5px 5px rgba(0,0,0,.5));
         }
-    #students-content article h3 {
+    .studenst-article .title .students-titles {
         font-size: 24px;
-        font-weight: 500;
+        font-weight: 500 !important;
     }
         #students-content p {
             font-weight: 300;
