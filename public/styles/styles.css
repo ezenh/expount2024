@@ -90,7 +90,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100svh;
-    background-color: var(--background-color);
     color: var(--text-color);
     }
 
@@ -160,7 +159,6 @@ button:hover {
     display: flex;
     width: 100vw;
     max-width: 100vw;
-    background-color: var(--background-color);
     height: 100svh;
     max-height: 100svh;
     overflow: hidden;
@@ -178,6 +176,8 @@ button:hover {
     gap: 16px;
     color: white;
     overflow: hidden;
+    background-color: var(--background-color);
+
 }
 
 /* ERROR CONTAINER  //////////////////////////////////////////////////////////*/
