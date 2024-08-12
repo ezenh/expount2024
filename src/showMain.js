@@ -309,7 +309,7 @@ function renderInstitutions(filter = "") {
                         <div class="institution-title">
                             <img src="./assets/img/${institution.logo}" alt="" class="institution-logo">
                             <h3 class="institution-name">${institution.name}</h3>
-                            <div class="expand-icon-button" onclick="institurionResize">
+                            <div class="expand-icon-button" onclick="institutionResize">
                                 <img class="expand-icon" src="./assets/ico/down-arrow-white.png" alt="">
                             </div>
                         </div>
