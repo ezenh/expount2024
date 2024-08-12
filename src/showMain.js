@@ -383,7 +383,7 @@ renderInstitutions();
 Array.from(document.getElementsByClassName('expand-icon-button')).children.forEach (
     el => {
         console.log(el)
-        // el.addEventListener('click', institutionResize)
+        el.addEventListener('click', institutionResize)
     }
 )
 
