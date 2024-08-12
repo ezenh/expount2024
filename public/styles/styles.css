@@ -132,6 +132,7 @@ button:hover {
     gap: 16px;
     color: white;
     /* background-color: rgba(1, 1, 43, 0.823); */
+    background-color: var(--background-color);
     overflow: hidden;
 }
 
