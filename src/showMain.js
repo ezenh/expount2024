@@ -361,7 +361,7 @@ function renderInstitutions(filter = "") {
 
                     institutionContainer.appendChild(institutionArticle);
 
-                    institutionArticle.querySelector('expand-icon-button').addEventListener('click', institutionResize)
+                    institutionArticle.querySelector('.expand-icon-button').addEventListener('click', institutionResize)
 
                 }
             });
