@@ -216,7 +216,7 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
         </footer>
     `
 
-    Array.from(document.getElementsByClassName('expand-icon-button')).forEach(el => {
+    Array.from(document.getElementsByClassName('expand-icon-button').children).forEach(el => {
         console.log(el)
         // el.addEventListener('click', institutionResize)
     })
