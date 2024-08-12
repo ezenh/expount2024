@@ -115,7 +115,7 @@ button:hover {
     display: flex;
     width: 100vw;
     /* max-width: 400px; */
-    height: 100svh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -127,10 +127,11 @@ button:hover {
     justify-content: center;
     text-align: center;
     width: 100vw;
-    height: 100svh;
+    height: 100%;
     gap: 16px;
     color: white;
     background-color: rgba(1, 1, 43, 0.823);
+    overflow: hidden;
 }
 
 /* ERROR CONTAINER  //////////////////////////////////////////////////////////*/
