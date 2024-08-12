@@ -384,7 +384,13 @@ renderInstitutions();
 
 function institutionResize(event) {
     // let pushedButton = event.target
-    console.log(event.target)
+    // console.log(event.target)
+    if(event.target.className == 'expand-icon-button') {
+        console.log('botton')
+    }else{
+        console.log('imagen')
+
+    }
     let article
 
     if (pushedButton.className == 'expand-icon') {
