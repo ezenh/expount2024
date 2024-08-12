@@ -557,9 +557,6 @@ nav ul {
         /* filter: drop-shadow(0 5px 5px rgba(0,0,0,.5)); */
 
     }
-        #students-content a {
-            margin-left: auto;
-        }
         #students-content p {
             font-weight: 300;
             z-index: 10;
@@ -706,7 +703,7 @@ nav ul {
                     .institution-careers div p {
                         font-size: 12px;
                     }
-                #careers-content article a {
+                #careers-content article a, .description a  {
                     padding: 8px 12px;
                     text-decoration: none;
                     color: white;
