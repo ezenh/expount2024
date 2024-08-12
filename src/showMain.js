@@ -216,6 +216,7 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
         </footer>
     `
 
+
     checkDate()
 
     if(user && user.photo != 'https://127.0.0.1:8080/placeholder.jpg') {
@@ -309,7 +310,7 @@ function renderInstitutions(filter = "") {
                         <div class="institution-title">
                             <img src="./assets/img/${institution.logo}" alt="" class="institution-logo">
                             <h3 class="institution-name">${institution.name}</h3>
-                            <div class="expand-icon-button" onclick="institutionResize">
+                            <div class="expand-icon-button" onclick="institutionResize()">
                                 <img class="expand-icon" src="./assets/ico/down-arrow-white.png" alt="">
                             </div>
                         </div>
@@ -359,6 +360,7 @@ function renderInstitutions(filter = "") {
                     moreButton.textContent = "Ver más";
                     institutionArticle.appendChild(moreButton);
 
+                    institutionContainer.appendChild(institutionArticle);
                 }
             });
         }
@@ -377,6 +379,7 @@ document.getElementById("search-input").addEventListener("input", function () {
 // Render inicial sin ningún filtro
 renderInstitutions();
 
+
     hideOtherContainers('homeContainer');
 }
 
@@ -384,14 +387,8 @@ renderInstitutions();
 
 function institutionResize(event) {
     // let pushedButton = event.target
-    // console.log(event.target)
-    // if(event.target.className == 'expand-icon-button') {
-    //     console.log('botton')
-    // }else{
-    //     console.log('imagen')
-
-    // }
-    // let article
+    console.log(event.target)
+    let article
 
     if (pushedButton.className == 'expand-icon') {
         article = pushedButton.parentNode.parentNode.parentNode
