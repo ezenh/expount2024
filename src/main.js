@@ -71,8 +71,8 @@ async function handleQRLogin(user) {
         await participarEnSorteo(storedUser);
         showHome(storedUser);
         showMessage("Inscripción al sorteo realizada exitosamente");
-    } else if (dni) {
-        const result = await api.checkDNI(dni);
+    } else if (user) {
+        const result = checkUsersinDb(user);
         if (result.success) {
             await participarEnSorteo(result.user);
             localStorage.setItem('user', JSON.stringify(result.user));
