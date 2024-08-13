@@ -113,9 +113,10 @@ function register(userData) {
 
             let errorMessage = error.error
 
-            if(errorMessage.includes("dni")) alert(`Error en el registro, ya existe un usuario con el DNI ${userData.dni}`)
+            if(errorMessage.includes("DNI")) alert(`Error en el registro, ya existe un usuario con el DNI ${userData.dni}`)
             if(errorMessage.includes("email")) alert(`Error en el registro, ya existe un usuario con el email ${userData.email}`)
 
+            // alert(error.error)
             console.log(error.error)
 
         });
@@ -126,3 +127,4 @@ function logout() {
     localStorage.removeItem('user');
     isLoggedIn = false;
 }
+

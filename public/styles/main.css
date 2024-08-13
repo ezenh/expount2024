@@ -31,8 +31,8 @@ article {
 h2:not(#sorteo-title, #cronogram, #register-title, #cover-title), .institution-name, p:not(#home-welcome, #home-user, .footer-text p:nth-child(2), .description, #scanButton) {
     color: var(--text-color);
     font-weight: var(--text-weight);
-
 }
+
 
 /* #sections {
     background-color: var(--main-nav-background);
@@ -318,15 +318,21 @@ nav ul {
         transition: all .5s ease;
         }
 
-    #home-content #cronogram, #home-content h3:not(.cronogram-first ) {
+    #home-content #cronogram, #home-content h3:not(.cronogram-first, #dayone, #daytwo ) {
         margin-top: 60px;
         -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
         }
 
+
     #home-content h3 {
         text-align: center;
         color: var(--expo-pink);
+        }
+
+        #dayone, #daytwo {
+            margin-top: 20px;
+            font-size: 24px;
         }
 
     #home-content h4 {

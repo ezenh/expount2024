@@ -35,7 +35,7 @@ const UserSchema = new mongoose.Schema({
     birthDate: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     school: { type: String, required: true },
-    sorteo: { type: Boolean, default: false, required: true }
+    sorteo: { type: Boolean, default: false, required: true },
 });
 
 const User = mongoose.model('User', UserSchema);
@@ -144,6 +144,15 @@ app.post('/participar', authenticateToken, async (req, res) => {
         }
 
         res.json({ message: 'Participación registrada con éxito', user });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.patch('/users/update-sorteo', authenticateToken, async (req, res) => {
+    try {
+        const result = await User.updateMany({}, { sorteo1: false, sorteo2: false });
+        res.json({ message: `Se actualizaron ${result.modifiedCount} usuarios` });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

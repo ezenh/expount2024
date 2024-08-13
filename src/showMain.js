@@ -59,7 +59,15 @@ function showHome(user) {
 
                 <div id="sorteo-resultado">
                     <h2 id="sorteo-title">SORTEO</h2>
-                    <span>[Cuenta Regresiva]</span>
+                    <span>Al asistir a la EXPO UNT 2024, participás de 2 sorteos que se llevarán a cabo durante el evento:</span>
+
+                    <h3 id="dayone"></h3>
+                    <span>Se realizarán a las 14:00 Hs. y a las 15:30 Hs.</span>
+                    <h3 id="daytwo"></h3>
+                    <span>Se realizarán a las 10:30 Hs. y a las 15:30 Hs.</span>
+
+                    <p>Para asistir a los mismos, deberás dirigirte a la explanada del Anfiteatro de Psicología dentro de los horarios indicados.<p>
+
                 </div>
                 <p id="scanButton" class="scanButtonOn">Participar</p>
                 <p id="sorteo-description" class="cronogram-li">Para participar del sorteo, deberás escanear el código QR que podrás encontrar en la EXPO. 
@@ -204,7 +212,7 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
         </main>
 
         <footer>
-            <img id="footer_untlogo" src="../assets/img/unt-logo-new-gray.png">
+            <img id="footer_untlogo" src="./assets/img/unt-logo-new-gray.png">
             <div class="footer-text">
                 <b>Secretaría de Comunicación Institucional</b>
                 <p>Rectorado UNT</p>

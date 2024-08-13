@@ -36,23 +36,23 @@ function handleQRLogin(dni) {
     //     });
 // }
 
-async function checkDNIAndParticipate() {
-    const dni = document.getElementById('dni').value;
-    try {
-        const result = await api.checkDNI(dni);
-        if (result.success) {
-            await participarEnSorteo(result.user);
-            localStorage.setItem('user', JSON.stringify(result.user));
-            localStorage.setItem('token', result.token);
-            showHome(result.user);
-            showMessage("Inicio de sesión exitoso y participación en el sorteo registrada");
-        } else {
-            showErrorMessage("DNI no encontrado. Por favor, regístrate.");
-        }
-    } catch (error) {
-        showErrorMessage(error.message);
-    }
-}
+// async function checkDNIAndParticipate() {
+//     const dni = document.getElementById('dni').value;
+//     try {
+//         const result = await api.checkDNI(dni);
+//         if (result.success) {
+//             await participarEnSorteo(result.user);
+//             localStorage.setItem('user', JSON.stringify(result.user));
+//             localStorage.setItem('token', result.token);
+//             showHome(result.user);
+//             showMessage("Inicio de sesión exitoso y participación en el sorteo registrada");
+//         } else {
+//             showErrorMessage("DNI no encontrado. Por favor, regístrate.");
+//         }
+//     } catch (error) {
+//         showErrorMessage(error.message);
+//     }
+// }
 
 // 2 - AL CLICKEAR BOTON GOOGLE CHECKEA SI EXISTE EL USUARIO EN LA DB ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function checkUsersinDb(user) {
@@ -113,9 +113,19 @@ async function handleQRLogin(user) {
 }
 
 async function participarEnSorteo(user) {
+    const today = new Date();
+    const day = today.getDate();
+
+    console.log(day)
     try {
+        if (day === 13) {
+            user.sorteo1 = true;
+        } else if (day === 15) {
+            user.sorteo2 = true;
+        }
+
         const result = await api.participarEnSorteo(user);
-        user.sorteo = true;
+
         localStorage.setItem('user', JSON.stringify(user));
     } catch (error) {
         console.error('Error al participar en el sorteo:', error);
@@ -174,6 +184,16 @@ function submitRegistration() {
         register(userData);
     } else {
         alert('Por favor, complete todos los campos');
+    }
+}
+
+async function participarEnSorteo(user) {
+    try {
+        const result = await api.participarEnSorteo(user);
+        user.sorteo = true;
+        localStorage.setItem('user', JSON.stringify(user));
+    } catch (error) {
+        console.error('Error al participar en el sorteo:', error);
     }
 }
 
@@ -309,6 +329,7 @@ function checkDate() {
     setInterval(() => {
         const date = new Date()
 
+        const dayNumber = date.getDay()
         const day = days[(date.getDay())]
         const dayOfMonth = date.getDate();
         const month = date.getMonth()
@@ -317,8 +338,15 @@ function checkDate() {
         const hours = date.getHours()
         const minutes = date.getMinutes()
 
+        console.log(dayOfMonth)
+
+
         if( day === "Miércoles" && dayOfMonth === "14" ) {
+
+            document.getElementById('dayone').innerText = "HOY"
             document.querySelector('.cronogram-first').innerText = "Hoy"
+
+
             if(hours == 9 && minutes >= 30) {
                 agenda[0].innerText = "AHORA!"
             }else{
@@ -355,10 +383,14 @@ function checkDate() {
                 agenda[5].innerText = horarios[5]
             }
         }else{
+            document.getElementById('dayone').innerText = "Miércoles 14"
+
             document.querySelector('.cronogram-first').innerText = "Miércoles 14 de Agosto"
         }
 
         if( day === "Jueves" && dayOfMonth === "15" ) {
+            document.getElementById('daytwo').innerText = "HOY"
+
             document.querySelector('.cronogram-second').innerText = "Hoy"
             if(hours == 9) {
                 agenda[6].innerText = "AHORA!"
@@ -384,6 +416,7 @@ function checkDate() {
                 agenda[9].innerText = horarios[9]
             }
         }else{
+            document.getElementById('daytwo').innerText = "Jueves 15"
             document.querySelector('.cronogram-second').innerText = "Jueves 15 de Agosto"
         }
 
@@ -399,3 +432,25 @@ function checkDate() {
 }
 
 
+function upgradeUsersState() {
+    fetch('https://expount2024.vercel.app/users/update-sorteo', {
+        method: 'PATCH',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Si es necesario autenticación
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la red: Respuesta no OK');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.message);
+    })
+    .catch(error => {
+        console.error('Error durante la actualización:', error);
+    });
+}
+
+upgradeUsersState()

@@ -13,7 +13,6 @@ function showRegisterForm(userData = {}) {
         <div id="photo-container">
             <img id="userPhoto" src="${userData.picture|| 'placeholder.jpg'}">
         </div>
-        <button id="load-photo-button">Tomar foto</button>
         <input type="text" id="name" placeholder="Nombre" value="${userData.given_name || ''}">
         <input type="text" id="lastName" placeholder="Apellido" value="${userData.family_name || ''}">
 
@@ -50,13 +49,11 @@ function showRegisterForm(userData = {}) {
         console.log('hay foto')
         document.getElementById('photo-container').display = 'flex'
         document.getElementById('userPhoto').style.display = 'flex'
-        document.getElementById('load-photo-button').style.display = 'flex'
     }else{
         console.log('no hay foto')
         console.log(document)
         document.getElementById('photo-container').style.display = 'none'
         document.getElementById('userPhoto').style.display = 'none'
-        document.getElementById('load-photo-button').style.display = 'none'
         // document.getElementById('register-submit-button').style.backgroundColor = 'var(--expo-blue)'
 
     }

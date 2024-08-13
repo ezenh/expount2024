@@ -68,4 +68,22 @@ const api = {
         return response.json();
     },
 
+
+    updateSorteoStatus: async () => {
+        const token = localStorage.getItem('token'); // Asegúrate de que el token se obtiene correctamente
+        const response = await fetch(`${baseURL}/users/update-sorteo`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Error en la red: Respuesta no OK');
+        }
+
+        return response.json();
+    }
+
 };
