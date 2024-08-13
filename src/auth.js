@@ -6,11 +6,11 @@ function initLoginButton() {
     const savedUser = localStorage.getItem('user');
     console.log(localStorage)
 
-    if (savedUser) {
-        isLoggedIn = true;
-        checkUsersinDb(savedUser)
-        console.log(savedUser)
-    } else {
+    // if (savedUser) {
+    //     isLoggedIn = true;
+    //     checkUsersinDb(savedUser)
+    //     console.log(savedUser)
+    // } else {
         loadGoogleScript().then(() => {
             google.accounts.id.initialize({
                 client_id: "710446449605-6kvuci62ub95il6msl49gi0gnujsvbl4.apps.googleusercontent.com",
@@ -33,7 +33,7 @@ function initLoginButton() {
 
             // google.accounts.id.prompt(); // Optional: display the One Tap prompt
         });
-    }
+    // }
 }
 
 function loadGoogleScript() {

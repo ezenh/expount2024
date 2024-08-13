@@ -11,13 +11,17 @@ function init() {
     const dniFromQR = urlParams.get('dni');
 
     if (isQR === 'true') {
-        console.log('login con qr')
+        console.log('login con QR')
         handleQRLogin(dniFromQR);
     } else {
-        console.log('login sin qr')
+        console.log('login sin QR')
         initLoginButton();
         showLoginForm();
     }
+}
+
+function handleQRLogin(dni) {
+    showLoginForm(true, dni);
 }
     // initLoginButton()
     // showLoginForm();
@@ -32,9 +36,28 @@ function init() {
     //     });
 // }
 
+async function checkDNIAndParticipate() {
+    const dni = document.getElementById('dni').value;
+    try {
+        const result = await api.checkDNI(dni);
+        if (result.success) {
+            await participarEnSorteo(result.user);
+            localStorage.setItem('user', JSON.stringify(result.user));
+            localStorage.setItem('token', result.token);
+            showHome(result.user);
+            showMessage("Inicio de sesión exitoso y participación en el sorteo registrada");
+        } else {
+            showErrorMessage("DNI no encontrado. Por favor, regístrate.");
+        }
+    } catch (error) {
+        showErrorMessage(error.message);
+    }
+}
+
 // 2 - AL CLICKEAR BOTON GOOGLE CHECKEA SI EXISTE EL USUARIO EN LA DB ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function checkUsersinDb(user) {
-    fetch(`https://expount2024.vercel.app/users`)
+
+    fetch ('https://expount2024.vercel.app/users')
     .then(response => {
         if (!response.ok) {
             throw new Error('Red de respuesta no OK');

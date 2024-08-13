@@ -37,7 +37,7 @@ function showRegisterForm(userData = {}) {
         </select>
 
         <div id="register-buttons-container">
-            <button id="backtologin" onclick="backtologin()"><img src="../assets/ico/down-arrow-white.png">Volver</button>
+            <button id="backtologin" onclick="backtologin()"><img src="assets/ico/down-arrow-white.png">Volver</button>
 
             <button id="register-submit-button" onclick="submitRegistration()">Enviar</button>
 
