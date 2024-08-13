@@ -432,25 +432,15 @@ function checkDate() {
 }
 
 
-function upgradeUsersState() {
-    fetch('https://expount2024.vercel.app/users/update-sorteo', {
-        method: 'PATCH',
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}` // Si es necesario autenticación
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error en la red: Respuesta no OK');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log(data.message);
-    })
-    .catch(error => {
-        console.error('Error durante la actualización:', error);
-    });
+async function resetSorteoForAllUsers() {
+    try {
+        const result = await api.resetSorteoForAllUsers();
+        console.log(result.message);
+        alert(`Se ha reiniciado el estado del sorteo para ${result.modifiedCount} usuarios.`);
+    } catch (error) {
+        console.error('Error al reiniciar el estado del sorteo:', error);
+        alert('No se pudo reiniciar el estado del sorteo. Por favor, inténtalo de nuevo más tarde.');
+    }
 }
 
-upgradeUsersState()
+resetSorteoForAllUsers()

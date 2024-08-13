@@ -149,19 +149,38 @@ app.post('/participar', authenticateToken, async (req, res) => {
     }
 });
 
-app.patch('/users/update-sorteo', authenticateToken, async (req, res) => {
-    try {
-        const result = await User.updateMany({}, { sorteo1: false, sorteo2: false });
-        res.json({ message: `Se actualizaron ${result.modifiedCount} usuarios` });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
 
 app.get('/qr-login/:dni', (req, res) => {
     const dni = req.params.dni;
     res.redirect(`/?qr=true&dni=${dni}`);
 });
+
+
+
+
+// Añade esta nueva ruta en tu server.js
+app.post('/reset-sorteo', authenticateToken, async (req, res) => {
+    try {
+        // Asegúrate de que solo un administrador pueda ejecutar esta acción
+        if (req.user.role !== 'admin') {
+            return res.status(403).json({ error: 'No tienes permiso para realizar esta acción' });
+        }
+
+        // Actualiza todos los documentos en la colección de usuarios
+        const result = await User.updateMany({}, { sorteo: false });
+
+        res.json({ 
+            message: 'Estado de sorteo reiniciado para todos los usuarios',
+            modifiedCount: result.modifiedCount 
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
+
+
 
 // Middleware para autenticación con JWT
 function authenticateToken(req, res, next) {
