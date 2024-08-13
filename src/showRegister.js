@@ -1,6 +1,4 @@
 function showRegisterForm(userData = {}) {
-
-    console.log(userData.picture)
     console.log('showing Register')
 
     const container = document.getElementById('registerContainer');
@@ -10,6 +8,7 @@ function showRegisterForm(userData = {}) {
             <h2 id="register-title">Registro</h2>
             <h2> EXPO UNT <b>2024</b></h2>
         </div>
+        ${userData.dni ? '<p>Has escaneado un QR. Por favor, completa tu registro para participar en el sorteo.</p>' : ''}
         <h4>Completá tus datos para ver todo el contenido y participar del sorteo.</h4>
         <div id="photo-container">
             <img id="userPhoto" src="${userData.picture|| 'placeholder.jpg'}">

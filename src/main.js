@@ -6,8 +6,19 @@ document.addEventListener('DOMContentLoaded', init);
 let userData = {}
 // 1 - CARGA DE PANTALLA LOGIN ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function init() {
-    initLoginButton()
-    showLoginForm();
+    const urlParams = new URLSearchParams(window.location.search);
+    const isQR = urlParams.get('qr');
+    const dniFromQR = urlParams.get('dni');
+
+    if (isQR === 'true') {
+        handleQRLogin(dniFromQR);
+    } else {
+        initLoginButton();
+        showLoginForm();
+    }
+}
+    // initLoginButton()
+    // showLoginForm();
     // showRegisterForm()
     // showHome()
     // checkGeolocation()
@@ -17,11 +28,10 @@ function init() {
     //     .catch((error) => {
     //         showErrorMessage("Solo los participantes de la EXPO UNT 2024 pueden acceder al contenido de este sitio.");
     //     });
-}
+// }
 
 // 2 - AL CLICKEAR BOTON GOOGLE CHECKEA SI EXISTE EL USUARIO EN LA DB ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function checkUsersinDb(user) {
-
     fetch(`https://expount2024.vercel.app/users`)
     .then(response => {
         if (!response.ok) {
@@ -55,6 +65,37 @@ function checkUsersinDb(user) {
     });
 }
 
+async function handleQRLogin(dni) {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+        await participarEnSorteo(storedUser);
+        showHome(storedUser);
+        showMessage("Inscripción al sorteo realizada exitosamente");
+    } else if (dni) {
+        const result = await api.checkDNI(dni);
+        if (result.success) {
+            await participarEnSorteo(result.user);
+            localStorage.setItem('user', JSON.stringify(result.user));
+            localStorage.setItem('token', result.token);
+            showHome(result.user);
+            showMessage("Inscripción al sorteo realizada exitosamente");
+        } else {
+            showRegisterForm({ dni });
+        }
+    } else {
+        showLoginForm(true);
+    }
+}
+
+async function participarEnSorteo(user) {
+    try {
+        const result = await api.participarEnSorteo(user);
+        user.sorteo = true;
+        localStorage.setItem('user', JSON.stringify(user));
+    } catch (error) {
+        console.error('Error al participar en el sorteo:', error);
+    }
+}
 
 // FUNCIONES EXTRAS
 // Checkear DNI ingresado en Login
@@ -99,7 +140,7 @@ function submitRegistration() {
         birthDate: document.getElementById('birthDate').value,
         email: document.getElementById('email').value,
         school: document.getElementById('school').value,
-        sorteo: 'false',
+        sorteo: 'true', // Cambiado a 'true' por defecto para el registro vía QR
     };
 
     if (Object.values(userData).every(value => value)) {

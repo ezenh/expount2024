@@ -38,17 +38,6 @@ const api = {
         });
         return response.json();
     },
-    
-    // checkUser: async (dni, email) => {
-    //     const response = await fetch(`${baseURL}/check-dni`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({ dni, email }),
-    //     });
-    //     return response.json();
-    // },
 
     getUserData: async (userId) => {
         const token = localStorage.getItem('token');

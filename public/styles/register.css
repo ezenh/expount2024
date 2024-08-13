@@ -62,6 +62,13 @@
         .inputs-div input, .inputs-div select {
             width: 145px;
             }
+        #registerContainer label {
+            font-size: 12px;
+            padding-left: 6px;
+            margin-bottom: -8px;
+            text-align: left;
+            width: 300px;
+            }
 
 #register-buttons-container {
     display: flex;

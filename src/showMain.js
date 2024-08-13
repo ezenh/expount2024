@@ -15,7 +15,7 @@ function showHome(user) {
                     <p id="home-user">${user.name}</p>
                 </div>
                 <div id="expo-logo-header">
-                    <img alt="expo logo" src="../assets/img/expo2024_logo_o.png">
+                    <img alt="expo logo" src="./assets/img/expo2024_logo_o.png">
                 </div>
             </div>
 
