@@ -14,7 +14,7 @@ function init() {
         handleQRLogin(dniFromQR);
     } else {
         initLoginButton();
-        showLoginForm();
+        // showLoginForm();
     }
 }
     // initLoginButton()
