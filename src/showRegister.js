@@ -32,8 +32,8 @@ function showRegisterForm(userData = {}) {
         <input type="email" id="email" placeholder="Email" value="${userData.email || ''}">
         <select class="select" id="school">
             <option class="first-option" value="">Seleccioná tu escuela</option>
-            <option value="escuela1">Escuela 1</option>
-            <option value="escuela2">Escuela 2</option>
+            <option value="Pública">Pública</option>
+            <option value="Privada">Privada</option>
         </select>
 
         <div id="register-buttons-container">

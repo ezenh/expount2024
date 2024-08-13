@@ -219,7 +219,7 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
 
     checkDate()
 
-    if(user && user.photo != 'https://127.0.0.1:8080/placeholder.jpg') {
+    if (user && !user.photo.includes('placeholder.jpg')) {
         document.getElementById('user-photo').src = `${user.photo}`
         document.getElementById('user-photo').style.display = 'flex'
     }else{

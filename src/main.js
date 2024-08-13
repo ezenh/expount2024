@@ -65,7 +65,7 @@ function checkUsersinDb(user) {
     });
 }
 
-async function handleQRLogin(dni) {
+async function handleQRLogin(user) {
     const storedUser = JSON.parse(localStorage.getItem('user'));
     if (storedUser) {
         await participarEnSorteo(storedUser);
