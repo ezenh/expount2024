@@ -224,7 +224,7 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
     `
     
     console.log(user)
-    if(user.email === 'ezenh87@gmail.com') {
+    if(user.email === 'ezenh87@gmail.com' || user.email === 'melinalazarte@gmail.com') {
         let adminContainer = document.getElementById('admincontent')
 
 

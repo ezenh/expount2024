@@ -72,7 +72,7 @@ function checkUsersinDb(user) {
         for(userindb of data) {
             if(user === userindb.email || user.dni === userindb.dni || user.email === userindb.email ) {
                 matchedUser = true
-                showHome(userindb)
+                showCover(userindb)
             }
         }
         setTimeout(() => {
