@@ -16,7 +16,7 @@ function init() {
     } else {
         console.log('login sin qr')
         initLoginButton();
-        // showLoginForm();
+        showLoginForm();
     }
 }
     // initLoginButton()
