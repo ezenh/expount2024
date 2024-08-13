@@ -161,12 +161,10 @@ app.get('/qr-login/:dni', (req, res) => {
 // Añade esta nueva ruta en tu server.js
 app.post('/reset-sorteo', authenticateToken, async (req, res) => {
     try {
-        // Asegúrate de que solo un administrador pueda ejecutar esta acción
         if (req.user.role !== 'admin') {
             return res.status(403).json({ error: 'No tienes permiso para realizar esta acción' });
         }
 
-        // Actualiza todos los documentos en la colección de usuarios
         const result = await User.updateMany({}, { sorteo: false });
 
         res.json({ 
@@ -174,7 +172,8 @@ app.post('/reset-sorteo', authenticateToken, async (req, res) => {
             modifiedCount: result.modifiedCount 
         });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Error al reiniciar sorteo:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 });
 

@@ -72,16 +72,22 @@ const api = {
 // Añade esta nueva función en tu objeto api en api.js
 resetSorteoForAllUsers: async () => {
     const token = localStorage.getItem('token');
+    if (!token) {
+        throw new Error('No hay token de autenticación');
+    }
     const response = await fetch(`${baseURL}/reset-sorteo`, {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
         }
     });
 
     if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'No se pudo reiniciar el estado del sorteo');
+        if (response.status === 403) {
+            throw new Error('No tienes permiso para realizar esta acción');
+        }
+        throw new Error('Error al reiniciar el sorteo');
     }
 
     return response.json();

@@ -17,6 +17,7 @@ function init() {
         console.log('login sin QR')
         initLoginButton();
         showLoginForm();
+        // loadSorteoPage()
     }
 }
 
@@ -211,7 +212,7 @@ function showErrorMessage(message) {
 }
 
 function hideOtherContainers(exceptId) {
-    const containers = ['qrCamContainer', 'loginContainer', 'registerContainer', 'coverContainer', 'homeContainer', 'errorContainer'];
+    const containers = ['qrCamContainer', 'loginContainer', 'registerContainer', 'coverContainer', 'homeContainer', 'errorContainer', 'sorteoContainer'];
     containers.forEach(id => {
         if (id !== exceptId) {
             document.getElementById(id).style.display = 'none';
@@ -309,10 +310,10 @@ function updateLogoAndStyles(isDarkMode) {
     const descriptionElements = document.querySelectorAll('.description');
     
     if (isDarkMode) {
-        footer_untlogo.src = '../assets/img/unt-logo-new-gray.png';
+        footer_untlogo.src = './assets/img/unt-logo-new-gray.png';
         descriptionElements.forEach(el => el.style.fontWeight = '400');
     } else {
-        footer_untlogo.src = '../assets/img/unt-logo-new.png';
+        footer_untlogo.src = './assets/img/unt-logo-new.png';
         descriptionElements.forEach(el => el.style.fontWeight = '400');
     }
 }
@@ -439,8 +440,8 @@ async function resetSorteoForAllUsers() {
         alert(`Se ha reiniciado el estado del sorteo para ${result.modifiedCount} usuarios.`);
     } catch (error) {
         console.error('Error al reiniciar el estado del sorteo:', error);
-        alert('No se pudo reiniciar el estado del sorteo. Por favor, inténtalo de nuevo más tarde.');
+        alert(error.message || 'No se pudo reiniciar el estado del sorteo. Por favor, inténtalo de nuevo más tarde.');
     }
 }
 
-resetSorteoForAllUsers()
+// resetSorteoForAllUsers()

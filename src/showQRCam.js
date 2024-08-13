@@ -5,7 +5,7 @@ function showQRCam(user){
         qrCamContainer.innerHTML = 
         `
         <div id="qr-reader"></div>
-        <img src="../assets/img/expo2024_logo_o.png">
+        <img src="./assets/img/expo2024_logo_o.png">
         
         <div class="qrcamlimit" id="qrcam-top"></div>
         <div class="qrcamlimit" id="qrcam-bottom"></div>

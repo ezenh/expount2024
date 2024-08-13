@@ -68,7 +68,10 @@ function showHome(user) {
 
                     <p>Para asistir a los mismos, deberás dirigirte a la explanada del Anfiteatro de Psicología dentro de los horarios indicados.<p>
 
+                    <div id="admincontent"></div>
+
                 </div>
+
                 <p id="scanButton" class="scanButtonOn">Participar</p>
                 <p id="sorteo-description" class="cronogram-li">Para participar del sorteo, deberás escanear el código QR que podrás encontrar en la EXPO. 
                 Selecciona el botón "Participar" y, cuando la cámara de tu teléfono se abra, deberás encuadrar el código dentro del campo de visión de la misma. 
@@ -205,10 +208,6 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
 
             <div id="institution-container"></div>
             </section>
-
-
-
-
         </main>
 
         <footer>
@@ -223,8 +222,19 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
             </div>
         </footer>
     `
+    
+    console.log(user)
+    if(user.email === 'ezenh87@gmail.com') {
+        let adminContainer = document.getElementById('admincontent')
 
 
+        adminContainer.innerHTML = 
+        `
+        <button onclick="loadSorteoPage()">Iniciar Sorteo</button>
+        `
+    }else{
+        document.getElementById('admincontent').style.display = 'none'
+    }
     checkDate()
 
     if (user && !user.photo.includes('placeholder.jpg')) {
