@@ -11,8 +11,10 @@ function init() {
     const dniFromQR = urlParams.get('dni');
 
     if (isQR === 'true') {
+        console.log('login con qr')
         handleQRLogin(dniFromQR);
     } else {
+        console.log('login sin qr')
         initLoginButton();
         // showLoginForm();
     }
