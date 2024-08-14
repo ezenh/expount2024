@@ -46,15 +46,8 @@ function showHome(user) {
                 <img id="intro" src="./assets/img/expo2024_logo_o.png" alt="">
                 <p class='home-text'>Es la muestra más grande e importante de carreras del noroeste argentino. Encontrarás stands informativos de 100 carreras de grado y pregrado, con la participación de docentes y estudiantes de todas las facultades. 
 
-                    Elegí tu universidad, pública, gratuita, inclusiva. Elegí estudiar en la UNT.</p>
-                <p class='home-text'>Con tu check in, participas de un sorteo que se realizará a las 17 hs. 
-                    El resultado del sorteo aparecerá aquí y, si sos el ganador, lo podrás ver también. 
-                    
-                    Mucha suerte, ${user.name}!</p>
-
-
-
-
+                    Elegí tu universidad pública, gratuita e inclusiva. <b>Elegí estudiar en la UNT.</b></p>
+     
 
 
                 <div id="sorteo-resultado">
@@ -62,11 +55,11 @@ function showHome(user) {
                     <span>Al asistir a la EXPO UNT 2024, participás de 2 sorteos que se llevarán a cabo durante el evento:</span>
 
                     <h3 id="dayone"></h3>
-                    <span>Se realizarán a las 14:00 Hs. y a las 15:30 Hs.</span>
+                    <span>Se realizarán a las <b>14:00 Hs.</b> y a las <b>15:30 Hs.</b></span>
                     <h3 id="daytwo"></h3>
-                    <span>Se realizarán a las 10:30 Hs. y a las 15:30 Hs.</span>
+                    <span>Se realizarán a las <b>10:30 Hs.</b> y a las <b>15:30 Hs.</b></span>
 
-                    <p>Para asistir a los mismos, deberás dirigirte a la explanada del Anfiteatro de Psicología dentro de los horarios indicados.<p>
+                    <p>Para asistir a los mismos, deberás dirigirte a la explanada del Anfiteatro de Psicología dentro de los horarios indicados. Mucha suerte, ${user.name}!<p>
 
                     <div id="admincontent"></div>
 
