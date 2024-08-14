@@ -10,7 +10,7 @@ function showLoginForm(isQR = false, dniFromQR = '') {
         </div>
         ${isQR ? '<p>Has escaneado un QR para participar en el sorteo. Por favor, inicia sesión o regístrate.</p>' : ''}
         <input type="number" id="dni" placeholder="Ingresa tu DNI" value="${dniFromQR}" ${isQR ? 'readonly' : ''}>
-        <button onclick="checkDNI()">Ingresar</button>
+        <button id="login-button">Ingresar</button>
         <div id="google-login"></div>
         <span id="error-alert"></span>
 
@@ -18,6 +18,10 @@ function showLoginForm(isQR = false, dniFromQR = '') {
     `;
     hideOtherContainers('loginContainer');
 
+    document.getElementById('login-button').addEventListener('click', () => {
+        checkDNI(document.getElementById('dni').value)
+        console.log(document.getElementById('dni').value)
+    })
     setTimeout(() => {
         document.getElementById("error-alert").style.display = 'flex'
     }, 500);

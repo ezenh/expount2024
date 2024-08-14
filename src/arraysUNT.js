@@ -11,7 +11,7 @@ const institutions2 = [
           duration: "5 años"
         },
         {
-          name: "Licenciatura en Zootecnia",
+          name: "Licenciatura Zootecnista",
           duration: "5 años"
         },
         {
@@ -19,7 +19,7 @@ const institutions2 = [
           duration: "5 años"
         }
       ],
-      video: '<iframe src="https://www.youtube.com/embed/K1XtvSqkfGs" title="Micro EXPO UNT Virtual AGRONOMIA ZOOTECNIA Y VETERINARIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/K1XtvSqkfGs" title="Micro EXPO UNT Virtual AGRONOMIA ZOOTECNIA Y VETERINARIA" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -29,11 +29,16 @@ const institutions2 = [
       link: "https://www.unt.edu.ar/expount/facultades-y-escuelas/facultad-de-arquitectura-y-urbanismo/",
       careers: [
         {
-          name: "Arquitectura",
+          name: "Arquitectura y Urbanismo",
           duration: "5 años"
+        },
+        {
+          name: "Tecnicatura en Diseño de Indumentaria y Textil",
+          duration: "3 años"
         }
       ],
-      video: '<iframe src="https://www.youtube.com/embed/bmQ53FcuUqs" title="Micro EXPO UNT Virtual ARQUITECTURA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      
+      video: '<iframe src="https://www.youtube.com/embed/bmQ53FcuUqs" title="Micro EXPO UNT Virtual ARQUITECTURA" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -47,11 +52,52 @@ const institutions2 = [
           duration: "5 años"
         },
         {
-          name: "Licenciatura en Música",
+          name: "Diseño de Interiores y Equipamiento",
+          duration: "4 años"
+        },
+        {
+          name: "Licenciatura en Teatro",
           duration: "5 años"
-        }
+        },
+        {
+          name: "Profesorado Universitario en Teatro",
+          duration: "4 años"
+        },
+        {
+          name: "Licenciatura en Música",
+          duration: "2 años"
+        },
+        {
+          name: "Tecnicatura Universitaria en Fotografía",
+          duration: "3 años"
+        },
+        {
+          name: "Profesorado en Danza Contemporánea",
+          duration: "5 años"
+        },
+        {
+          name: "Bailarín/a en Danza Contemporánea",
+          duration: "4 años"
+        },
+        {
+          name: "Licenciatura en Danza Clásica",
+          duration: "5 años"
+        },
+        {
+          name: "Licenciatura en Diseño de Sonido",
+          duration: "4 años"
+        },
+        {
+          name: "Licenciatura en Luthería",
+          duration: "5 años"
+        },
+        {
+          name: "Tecnicatura en Sonorización",
+          duration: "3 años"
+        },
+
       ],
-      video: '<iframe src="https://www.youtube.com/embed/6D0mS67Okgo" title="Micro EXPO UNT Virtual FACULTAD DE ARTES" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/6D0mS67Okgo" title="Micro EXPO UNT Virtual FACULTAD DE ARTES" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -62,14 +108,30 @@ const institutions2 = [
       careers: [
         {
           name: "Bioquímica",
-          duration: "5 años"
+          duration: "6 años"
         },
         {
           name: "Farmacia",
+          duration: "6 años"
+        },
+        {
+          name: "Licenciatura en Biotecnología",
           duration: "5 años"
-        }
+        },
+        {
+          name: "Licenciatura en Química",
+          duration: "5 años"
+        },
+        {
+          name: "Tecnicatura Laboratorista en Salud",
+          duration: "3 años"
+        },
+        {
+          name: "Tecnicatura en Saneamiento y Desinfección de los Servicios de Salud",
+          duration: "3 años"
+        },
       ],
-      video: '<iframe src="https://www.youtube.com/embed/A_ia70Gw0FI" title="Micro EXPO UNT Virtual BIOQUIMICA QUIMICA FARMACIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/A_ia70Gw0FI" title="Micro EXPO UNT Virtual BIOQUIMICA QUIMICA FARMACIA" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -91,7 +153,7 @@ const institutions2 = [
           duration: "5 años"
         }
       ],
-      video: '<iframe src="https://www.youtube.com/embed/v5c_pnf5BPw" title="Micro EXPO UNT Virtual CIENCIAS ECONOMICAS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/v5c_pnf5BPw" title="Micro EXPO UNT Virtual CIENCIAS ECONOMICAS" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -101,7 +163,47 @@ const institutions2 = [
       link: "https://www.unt.edu.ar/expount/facultades-y-escuelas/facultad-de-ciencias-exactas-y-tecnologia/",
       careers: [
         {
-          name: "Licenciatura en Matemáticas",
+          name: "Diseño de Iluminación",
+          duration: "4 años"
+        },
+        {
+          name: "Ingeniería Azucarera",
+          duration: "5 años"
+        },
+        {
+          name: "Ingeniería Biomédica",
+          duration: "5 años"
+        },
+        {
+          name: "Ingeniería Civil",
+          duration: "5 años y 1/2"
+        },
+        {
+          name: "Ingeniería Eléctrica",
+          duration: "5 años"
+        },
+        {
+          name: "Ingeniería Electrónica ",
+          duration: "5 años"
+        },
+        {
+          name: "Ingeniería en Computación",
+          duration: "4 años y 1/2"
+        },
+        {
+          name: "Ingeniería en Informática",
+          duration: "5 años"
+        },
+        {
+          name: "Ingeniería Geodésica y Geofísica",
+          duration: "5 años"
+        },
+        {
+          name: "Ingeniería Mecánica",
+          duration: "5 años"
+        },
+        {
+          name: "Ingeniería Industrial",
           duration: "5 años"
         },
         {
@@ -109,15 +211,28 @@ const institutions2 = [
           duration: "5 años"
         },
         {
-          name: "Ingeniería en Computación",
+          name: "Licenciatura en Informática",
           duration: "5 años"
         },
         {
-          name: "Ingeniería Industrial",
-          duration: "5 años"
-        }
+          name: "Programador Universitario",
+          duration: "3 años"
+        },
+        {
+          name: "Tecnicatura en Tecnología Azucarera e Industrias Derivadas",
+          duration: "3 años"
+        },
+        {
+          name: "Tecnicatura en Física",
+          duration: "3 años"
+        },
+        {
+          name: "Tecnicatura en Física Ambiental",
+          duration: "2 años y 1/2"
+        },
+
       ],
-      video:'<iframe src="https://www.youtube.com/embed/B8bV0-SaVfo" title="Micro EXPO UNT Virtual FACET" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video:'<iframe src="https://www.youtube.com/embed/B8bV0-SaVfo" title="Micro EXPO UNT Virtual FACET" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -127,19 +242,27 @@ const institutions2 = [
       link: "https://www.unt.edu.ar/expount/facultades-y-escuelas/facultad-de-ciencias-naturales-e-instituto-miguel-lillo/",
       careers: [
         {
-          name: "Licenciatura en Ciencias Biológicas",
+          name: "Geología",
           duration: "5 años"
         },
         {
-          name: "Licenciatura en Ciencias Geológicas",
+          name: "Licenciatura en Cs. Biológicas",
           duration: "5 años"
         },
         {
-          name: "Licenciatura en Ciencias Ambientales",
+          name: "Profesorado en Cs. Biológicas",
+          duration: "4 años"
+        },
+        {
+          name: "Arqueología ",
           duration: "5 años"
-        }
+        },
+        {
+          name: "Tecnicatura en Documentación y Museología Arqueológica",
+          duration: "3 años"
+        },
       ],
-      video: '<iframe src="https://www.youtube.com/embed/PktzAGQOvj0" title="Micro EXPO UNT Virtual CIENCIAS NATURALES e INSTITUTO MIGUEL LILLO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/PktzAGQOvj0" title="Micro EXPO UNT Virtual CIENCIAS NATURALES e INSTITUTO MIGUEL LILLO" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -150,10 +273,18 @@ const institutions2 = [
       careers: [
         {
           name: "Abogacía",
+          duration: "6 años"
+        },
+        {
+          name: "Escribanía",
           duration: "5 años"
-        }
+        },
+        {
+          name: "Procuración",
+          duration: "4 años"
+        },
       ],
-      video: '<iframe src="https://www.youtube.com/embed/rGWuqgQH4kE" title="Micro EXPO UNT Virtual FACULTAD DE DERECHO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/rGWuqgQH4kE" title="Micro EXPO UNT Virtual FACULTAD DE DERECHO" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -164,10 +295,14 @@ const institutions2 = [
       careers: [
         {
           name: "Profesorado en Educación Física",
-          duration: "5 años"
-        }
+          duration: "4 años"
+        },
+        {
+          name: "Licenciatura en Educación Física",
+          duration: "6 años"
+        },
       ],
-      video: '<iframe src="https://www.youtube.com/embed/nks1d8Fu2Jo" title="Micro EXPO UNT Virtual FACULTAD DE EDUCACION FISICA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/nks1d8Fu2Jo" title="Micro EXPO UNT Virtual FACULTAD DE EDUCACION FISICA" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -177,7 +312,31 @@ const institutions2 = [
       link: "https://www.unt.edu.ar/expount/facultades-y-escuelas/facultad-de-filosofia-y-letras/",
       careers: [
         {
+          name: "Licenciatura en Cs. De la Comunicación",
+          duration: "4 años"
+        },
+        {
+          name: "Licenciatura en Cs. De la Educación",
+          duration: "5 años"
+        },
+        {
           name: "Licenciatura en Filosofía",
+          duration: "5 años"
+        },
+        {
+          name: "Licenciatura en Francés",
+          duration: "5 años"
+        },
+        {
+          name: "Licenciatura en Geografía",
+          duration: "5 años"
+        },
+        {
+          name: "Licenciatura en Historia",
+          duration: "5 años"
+        },
+        {
+          name: "Licenciatura en Inglés",
           duration: "5 años"
         },
         {
@@ -185,11 +344,56 @@ const institutions2 = [
           duration: "5 años"
         },
         {
-          name: "Licenciatura en Historia",
+          name: "Licenciatura en Trabajo Social ",
           duration: "5 años"
-        }
+        },
+        {
+          name: "Profesorado en Artes Plásticas",
+          duration: "2 años"
+        },
+        {
+          name: "Profesorado en Cs. De la Educación",
+          duration: "5 años"
+        },
+        {
+          name: "Profesorado en Cs. Económicas",
+          duration: "2 años"
+        },
+        {
+          name: "Profesorado en Filosofía",
+          duration: "5 años"
+        },
+        {
+          name: "Profesorado en Francés",
+          duration: "5 años"
+        },
+        {
+          name: "Profesorado en Inglés",
+          duration: "5 años"
+        },
+        {
+          name: "Profesorado en Geografía",
+          duration: "5 años"
+        },
+        {
+          name: "Profesorado en Letras",
+          duration: "5 años"
+        },
+        {
+          name: "Tecnicatura en Comunicación",
+          duration: "3 años"
+        },
+        {
+          name: "Profesorado en Química",
+          duration: "5 años"
+        },
+        {
+          name: "Profesorado en Matemática`  ",
+          duration: "5 años"
+        },
+
       ],
-      video: '<iframe src="https://www.youtube.com/embed/XLMMN9fj6ww" title="Micro EXPO UNT Virtual FILOSOFIA Y LETRAS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/XLMMN9fj6ww" title="Micro EXPO UNT Virtual FILOSOFIA Y LETRAS" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -200,14 +404,26 @@ const institutions2 = [
       careers: [
         {
           name: "Medicina",
-          duration: "6 años"
+          duration: "7 años"
         },
         {
-          name: "Licenciatura en Obstetricia",
+          name: "Licenciatura en Kinesiología",
           duration: "5 años"
+        },
+        {
+          name: "Kinesiología",
+          duration: "4 años"
+        },
+        {
+          name: "Licenciatura en Fonoaudiología",
+          duration: "2 años"
+        },
+        {
+          name: "Tecnicatura en Estadísticas de Salud ",
+          duration: "3 años"
         }
       ],
-      video: '<iframe src="https://www.youtube.com/embed/yPXZ3blNKcE" title="Micro EXPO UNT Virtual MEDICINA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/yPXZ3blNKcE" title="Micro EXPO UNT Virtual MEDICINA" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -218,10 +434,14 @@ const institutions2 = [
       careers: [
         {
           name: "Odontología",
-          duration: "5 años"
-        }
+          duration: "5 años y 1/2"
+        },
+        {
+          name: "Tecnicatura en Prótesis Dental",
+          duration: "3 años"
+        },
       ],
-      video: '	<iframe src="https://www.youtube.com/embed/s8s1cLHrq8M" title="Micro EXPO UNT Virtual ODONTOLOGIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/s8s1cLHrq8M" title="Micro EXPO UNT Virtual ODONTOLOGIA" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Facultades",
@@ -231,11 +451,19 @@ const institutions2 = [
       link: "https://www.unt.edu.ar/expount/facultades-y-escuelas/facultad-de-psicologia/",
       careers: [
         {
-          name: "Licenciatura en Psicología",
+          name: "Psicología",
           duration: "5 años"
-        }
+        },
+        {
+          name: "Tecnicatura en Acompañamiento Terapéutico",
+          duration: "3 años"
+        },
+        {
+          name: "Ciclo de Complementación Curricular, Profesorado en Psicología",
+          duration: "660 Hs."
+        },
       ],
-      video: '	<iframe src="https://www.youtube.com/embed/EMT5IZu8H3I" title="Micro EXPO UNT Virtual PSICOLOGÍA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/EMT5IZu8H3I" title="Micro EXPO UNT Virtual PSICOLOGÍA" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
 
 
@@ -254,15 +482,11 @@ const institutions2 = [
       link: "https://www.unt.edu.ar/expount/facultades-y-escuelas/escuela-de-bellas-artes/",
       careers: [
         {
-          name: "Licenciatura en Artes Visuales",
-          duration: "5 años"
-        },
-        {
           name: "Profesorado en Artes Visuales",
-          duration: "5 años"
-        }
+          duration: "4 años"
+        },
       ],
-      video: '<iframe src="https://www.youtube.com/embed/UDJpNLINt-0" title="Micro EXPO UNT Virtual ESCUELA DE BELLAS ARTES" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/UDJpNLINt-0" title="Micro EXPO UNT Virtual ESCUELA DE BELLAS ARTES" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Escuelas",
@@ -272,11 +496,15 @@ const institutions2 = [
       link: "https://www.unt.edu.ar/expount/facultades-y-escuelas/escuela-universitaria-de-cine-video-y-television/",
       careers: [
         {
-          name: "Licenciatura en Cine, Video y Televisión",
+          name: "Licenciatura en Cinematografía",
           duration: "5 años"
-        }
+        },
+        {
+          name: "Tecnicatura en Medios Audiovisuales",
+          duration: "3 años"
+        },
       ],
-      video: '<iframe src="https://www.youtube.com/embed/FgOGCLNvAv8" title="Micro EXPO UNT Virtual CINE EUCVYTV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/FgOGCLNvAv8" title="Micro EXPO UNT Virtual CINE EUCVYTV" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Escuelas",
@@ -286,15 +514,15 @@ const institutions2 = [
       link: "https://www.unt.edu.ar/expount/facultades-y-escuelas/escuela-de-enfermeria/",
       careers: [
         {
-          name: "Licenciatura en Enfermería",
-          duration: "4 años"
+          name: "Enfermería",
+          duration: "3 años"
         },
         {
-          name: "Tecnicatura Universitaria en Enfermería",
-          duration: "3 años"
+          name: "Licenciatura en Enfermería",
+          duration: "5 años"
         }
       ],
-      video: '<iframe src="https://www.youtube.com/embed/apd_ZYQw5bY" title="Micro EXPO UNT Virtual ENFERMERIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/apd_ZYQw5bY" title="Micro EXPO UNT Virtual ENFERMERIA" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
     {
       type: "Escuelas",
@@ -316,7 +544,7 @@ const institutions2 = [
           duration: "4 años"
         }
       ],
-      video: '<iframe src="https://www.youtube.com/embed/hGRHtgIJdMY" title="Micro EXPO UNT Virtual ISMUNT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/hGRHtgIJdMY" title="Micro EXPO UNT Virtual ISMUNT" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
 
     {
@@ -339,7 +567,7 @@ const institutions2 = [
           duration: "3 años"
         }
       ],
-      video: '<iframe src="https://www.youtube.com/embed/bOLd9qvpi20" title="Micro EXPO UNT Virtual INSTITUTO TECNICO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/bOLd9qvpi20" title="Micro EXPO UNT Virtual INSTITUTO TECNICO" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     },
 
     {
@@ -358,6 +586,6 @@ const institutions2 = [
           duration: "4 años"
         }
       ],
-      video: '<iframe src="https://www.youtube.com/embed/2IwpzHdPgho" title="Micro EXPO UNT Virtual ESCUELA SARMIENTO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      video: '<iframe src="https://www.youtube.com/embed/2IwpzHdPgho" title="Micro EXPO UNT Virtual ESCUELA SARMIENTO" frameborder="0"   referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     }
   ];

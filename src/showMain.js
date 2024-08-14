@@ -9,7 +9,7 @@ function showHome(user) {
     `
     <header>
             <div id="header-top">
-                <img id="user-photo" alt="user photo">
+                <img id="user-photo" alt="user photo" src="">
                 <div id="header-text-container">
                     <p id="home-welcome">Bienvenido</p>
                     <p id="home-user">${user.name}</p>
@@ -222,6 +222,17 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
             </div>
         </footer>
     `
+    if (!user.photo.includes('placeholder.jpg')) {
+        console.log('tambien hay foto')
+        document.getElementById('user-photo').src = `${user.photo}`
+        document.getElementById('user-photo').style.display = 'flex'
+    }else{
+        console.log('no hay foto')
+        document.getElementById('user-photo').src = ``
+        document.getElementById('user-photo').style.display = 'none'
+        document.getElementById('header-text-container').style.marginLeft = '0'
+
+    }
     
     console.log(user)
     if(user.email === 'ezenh87@gmail.com' || user.email === 'melinalazarte@gmail.com') {
@@ -237,16 +248,7 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
     }
     checkDate()
 
-    if (user && !user.photo.includes('placeholder.jpg')) {
-        document.getElementById('user-photo').src = `${user.photo}`
-        document.getElementById('user-photo').style.display = 'flex'
-    }else{
-        console.log('no hay foto')
-        document.getElementById('user-photo').src = ``
-        document.getElementById('user-photo').style.display = 'none'
-        document.getElementById('header-text-container').style.marginLeft = '0'
 
-    }
 
 
 
@@ -256,14 +258,8 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
         document.getElementById('scanButton').style.color = "white !important"
 
     }else{
-        // document.getElementById('scanButton').style.backgroundColor = 'rgb(243, 7, 127, 0)'
-        document.getElementById('scanButton').style.color = "var(--contrast-text-color)"
         document.getElementById('scanButton').innerText = 'Ya estás participando'
         document.getElementById('scanButton').className = 'scanButtonOff'
-        // let scanButtonBefore = window.getComputedStyle(scanButton, '::before');
-    
-        // let beforeDisplay = scanButtonBefore.getPropertyValue('display')
-        
     }
 
     const scroll_container = document.getElementById('scroll-container');
@@ -322,7 +318,7 @@ function renderInstitutions(filter = "") {
                 if (institutionNameMatches || careerMatches || filter === "") {
                     const institutionArticle = document.createElement("article");
                     institutionArticle.className = 'institution-article'
-                    institutionArticle.style.backgroundImage = `url('../assets/img/${institution.icon}')`
+                    institutionArticle.style.backgroundImage = `url('./assets/img/${institution.icon}')`
 
                     institutionArticle.innerHTML = `
                         <div class="institution-title">

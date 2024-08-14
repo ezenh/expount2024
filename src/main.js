@@ -339,9 +339,6 @@ function checkDate() {
         const hours = date.getHours()
         const minutes = date.getMinutes()
 
-        console.log(dayOfMonth)
-
-
         if( day === "Miércoles" && dayOfMonth === "14" ) {
 
             document.getElementById('dayone').innerText = "HOY"

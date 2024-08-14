@@ -793,7 +793,20 @@ footer {
             display: flex;
             flex-direction: column;
             font-family: 'Bungee';
-
+        }
+        #coverContainer #user-coverphoto {
+            width: 90px;
+            height: 90px;
+            border-radius: 300px;
+            border: 2px solid white;
+            overflow: hidden;
+        }
+        #user-coverphoto {
+            width: 90px;
+            height: 90px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #coverContainer h2 span:nth-child(1) {
             font-family: 'Bungee';
@@ -803,3 +816,15 @@ footer {
             font-family: 'Bungee';
             color: var(--expo-pink);
         }
+
+        #homeContainer #header-top #user-photo {
+            display: flex;
+            width: 60px;
+            min-width: 60px;
+
+            height: 60px;
+            min-height: 60px;
+            border-radius: 100px;
+            background-color: rgb(132, 132, 132);
+            border: 2px solid white;
+            }
