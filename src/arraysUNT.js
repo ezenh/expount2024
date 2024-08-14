@@ -388,7 +388,7 @@ const institutions2 = [
           duration: "5 años"
         },
         {
-          name: "Profesorado en Matemática`  ",
+          name: "Profesorado en Matemáticas",
           duration: "5 años"
         },
 

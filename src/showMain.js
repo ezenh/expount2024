@@ -223,18 +223,18 @@ Ya sea por nombre de carrera, título e incluso duración (sólo indicar cant. d
         </footer>
     `
     if (!user.photo.includes('placeholder.jpg')) {
-        console.log('tambien hay foto')
+        // console.log('tambien hay foto')
         document.getElementById('user-photo').src = `${user.photo}`
         document.getElementById('user-photo').style.display = 'flex'
     }else{
-        console.log('no hay foto')
+        // console.log('no hay foto')
         document.getElementById('user-photo').src = ``
         document.getElementById('user-photo').style.display = 'none'
         document.getElementById('header-text-container').style.marginLeft = '0'
 
     }
-    
-    console.log(user)
+
+    // console.log(user)
     if(user.email === 'ezenh87@gmail.com' || user.email === 'melinalazarte@gmail.com') {
         let adminContainer = document.getElementById('admincontent')
 
@@ -402,7 +402,6 @@ renderInstitutions();
 
 function institutionResize(event) {
     let pushedButton = event.target
-    console.log(pushedButton)
     let article
 
     if (pushedButton.className == 'expand-icon') {

@@ -11,10 +11,10 @@ function init() {
     const dniFromQR = urlParams.get('dni');
 
     if (isQR === 'true') {
-        console.log('login con QR')
+        // console.log('login con QR')
         handleQRLogin(dniFromQR);
     } else {
-        console.log('login sin QR')
+        // console.log('login sin QR')
         initLoginButton();
         showLoginForm();
         // loadSorteoPage()
@@ -299,9 +299,16 @@ function updateToggleButton(isDarkMode) {
     if (isDarkMode) {
         toggle.style.backgroundColor = 'rgb(0,0,0)';
         toggleButton.style.left = '1px';
+        Array.from(document.getElementsByClassName('expand-icon')).forEach( el => {
+            el.src = './assets/ico/down-arrow-white.png'
+        })
+
     } else {
         toggle.style.backgroundColor = 'rgb(2, 175, 239)';
         toggleButton.style.left = '35px';
+        Array.from(document.getElementsByClassName('expand-icon')).forEach( el => {
+            el.src = './assets/ico/down-arrow-dark.png'
+        })
     }
 }
 
@@ -339,7 +346,7 @@ function checkDate() {
         const hours = date.getHours()
         const minutes = date.getMinutes()
 
-        if( day === "Miércoles" && dayOfMonth === "14" ) {
+        if( dayOfMonth == "14" ) {
 
             document.getElementById('dayone').innerText = "HOY"
             document.querySelector('.cronogram-first').innerText = "Hoy"
@@ -386,7 +393,7 @@ function checkDate() {
             document.querySelector('.cronogram-first').innerText = "Miércoles 14 de Agosto"
         }
 
-        if( day === "Jueves" && dayOfMonth === "15" ) {
+        if( dayOfMonth == "15" ) {
             document.getElementById('daytwo').innerText = "HOY"
 
             document.querySelector('.cronogram-second').innerText = "Hoy"
@@ -418,14 +425,6 @@ function checkDate() {
             document.querySelector('.cronogram-second').innerText = "Jueves 15 de Agosto"
         }
 
-        if( day === "Domingo" && dayOfMonth === 11 ) {
-            // console.log(document.querySelector('.cronogram-second'))
-            document.querySelector('.cronogram-second').innerText = "Hoy"
-            if(hours == 11) {
-                agenda[8].innerText = "AHORA!"
-                // document.querySelector('.cronogram-second').className = ".cronogram-second highlighted"
-                }
-            }
     }, 1000);
 }
 

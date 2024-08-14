@@ -331,6 +331,7 @@ nav ul {
         }
 
         #dayone, #daytwo {
+            font-family: 'Bungee';
             margin-top: 20px;
             font-size: 24px;
         }
@@ -638,7 +639,7 @@ nav ul {
                 gap: 12px;
                 z-index: 10;
                 }
-                .institution-careers h4 {
+                .institution-careers h3, .institution-careers h4 {
                     color: var(--contrast-text-color);
                 }
                 .institution-careers div {
