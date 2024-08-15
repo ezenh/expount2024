@@ -38,7 +38,7 @@
   async function onScanSuccess(decodedText, decodedResult, user) {
     console.log(user)
 
-    if (decodedText === 'EXPO_UNT_2024') {
+    if (decodedText === 'https://myqrcode.mobi/9a70c519') {
       alert("Lectura correcta");
 
       try {

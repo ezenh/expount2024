@@ -1,4 +1,4 @@
-function showHome(user) {
+function showHome(user={name:"eze", photo: "placeholder.jpg"}) {
     // console.log('showing Main')
     // console.log(user)
     const container = document.getElementById('homeContainer');
@@ -66,9 +66,7 @@ function showHome(user) {
                 </div>
 
                 <p id="scanButton" class="scanButtonOn">Participar</p>
-                <p id="sorteo-description" class="cronogram-li">Para participar del sorteo, deberás escanear el código QR que podrás encontrar en la EXPO. 
-                Selecciona el botón "Participar" y, cuando la cámara de tu teléfono se abra, deberás encuadrar el código dentro del campo de visión de la misma. 
-                Una vez detectado, automátcamente estarás inscripto. </p>
+ 
 
 
 

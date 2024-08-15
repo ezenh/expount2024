@@ -156,31 +156,6 @@ app.get('/qr-login/:dni', (req, res) => {
 });
 
 
-
-
-// Añade esta nueva ruta en tu server.js
-app.post('/reset-sorteo', authenticateToken, async (req, res) => {
-    try {
-        if (req.user.role !== 'admin') {
-            return res.status(403).json({ error: 'No tienes permiso para realizar esta acción' });
-        }
-
-        const result = await User.updateMany({}, { sorteo: false });
-
-        res.json({ 
-            message: 'Estado de sorteo reiniciado para todos los usuarios',
-            modifiedCount: result.modifiedCount 
-        });
-    } catch (error) {
-        console.error('Error al reiniciar sorteo:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
-    }
-});
-
-
-
-
-
 // Middleware para autenticación con JWT
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];

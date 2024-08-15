@@ -12,7 +12,7 @@ function loadSorteoPage() {
         <div id="resultado"></div>
         <video id="confetti" src="assets/vid/confetti.mp4" autoplay="autoplay" preload="metadata" muted="on"  type="video/mp4" playsinline></video>
 
-        <video id="api-bkg" src="assets/vid/neon-vector-bkg.mp4" preload="metadata" autoplay="autoplay" muted="on" loop="loop" type="video/mp4" playsinline></video>
+        <video id="api-bkg" src="assets/vid/fluidbkg.mp4" preload="metadata" autoplay="autoplay" muted="on" loop="loop" type="video/mp4" playsinline></video>
     `;
 
     let confettiVideo = document.getElementById('confetti')
@@ -48,8 +48,8 @@ function realizarSorteo() {
                 throw new Error('No hay usuarios disponibles.');
             }
 
-            // Filtrar usuarios que tienen sorteos activos
-            const usuariosConSorteo = data.filter(user => user.sorteo);
+            // Filtrar usuarios que tienen sorteos activos (sorteo === true)
+            const usuariosConSorteo = data.filter(user => user.sorteo === true);
 
             // Verificar que haya usuarios con sorteos
             if (usuariosConSorteo.length === 0) {
@@ -65,7 +65,6 @@ function realizarSorteo() {
             // Mostrar el usuario seleccionado
             console.log('Usuario seleccionado para el sorteo:', usuarioSeleccionado);
 
-
             confettiVideo.autoplay = "autoplay"
 
             let article 
@@ -78,31 +77,27 @@ function realizarSorteo() {
             else if( usuarioSeleccionado.gender == 'female') {
                 article = 'La'
                 article_ext = 'a'
-
             }else {
                 article = 'Elle'
                 article_ext = 'e'
-
             }
 
             confettiVideo.style.opacity = "1"
             confettiVideo.play()
 
             let sorteoButton = document.getElementById('start')
-            sorteoButton.innerText = 'FELICIDADES!'
+            // sorteoButton.innerText = 'FELICIDADES!'
 
             let winnerContainer = document.getElementById('resultado')
             winnerContainer.innerHTML = 
             `
-                <h3>${article} ganador${article_ext} es ${usuarioSeleccionado.name} ${usuarioSeleccionado.lastName}</h3>
+                <h2>¡Felicidades!</h2>
+                <h3>${article} ganador${article_ext} es: <br> <span> ${usuarioSeleccionado.name} ${usuarioSeleccionado.lastName}</span></h3>
                 <h4>DNI: ${usuarioSeleccionado.dni}</h4>
-
             `
-            winnerContainer.display = 'flex'
+            winnerContainer.style.display = 'flex'
             // Devolver el usuario seleccionado, si es necesario
             return usuarioSeleccionado;
-
-
         })
         .catch(error => {
             console.error('Error al conectar con el servidor:', error);

@@ -62,12 +62,13 @@ h2:not(#sorteo-title, #cronogram, #register-title, #cover-title), .institution-n
 }
 
 
-header {
+#homeContainer header {
     position: fixed;
     flex-direction: column;
     display: flex;
     top: 0;
     width: 100%;
+    max-width: 412px;
     padding: 10px 20px 0 20px;
     background-color: rgba(29, 29, 31, .8);
     -webkit-backdrop-filter: blur(20px);
@@ -176,13 +177,13 @@ nav ul {
     nav ul li:nth-child(3) {
         text-align: right;
     }
-#homeContainer {
+/* #homeContainer {
     position: relative;
     display: flex;
     width: 100%;
     color: white;
     transition: all .5s ease;
-}
+} */
 
 
 #homeContainer main {
@@ -201,8 +202,8 @@ nav ul {
         display: flex;
         flex-direction: column;
         height: 100%;
-        width: 100vw;
-        min-width: 100vw;
+        width: 100%;
+        min-width: 100%;
         height: min-content;
         scroll-snap-align: center;
         padding: 0 20px 120px 20px;
@@ -675,6 +676,7 @@ footer {
     align-items: center;
     bottom: 0;
     width: 100%;
+    max-width: 412px;
     height: 60px;
     padding: 12px 20px;
     gap: 16px;
@@ -716,7 +718,6 @@ footer {
     align-items: center;
     justify-content: center;
     font-family: 'Bungee';
-
     top: 0;
     left: 0;
     width: 100vw;
@@ -740,13 +741,25 @@ footer {
             font-family: 'Bungee';
             color: var(--expo-pink);
             }
+    #sorteoContainer h2 {
+        margin-top: 60px;
+        font-size: 50px;
+    }
+
     #sorteoContainer h3 {
-        margin-top: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         color: white;
         font-family: 'Bungee';
         text-align: center;
         font-size: 40px;
-
+        padding: 20px;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0.379);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        z-index: 10000;
     }
     #sorteoContainer h4 {
         margin-top: 20px;
@@ -754,7 +767,13 @@ footer {
         /* font-family: 'Bungee'; */
         text-align: center;
         font-size: 40px;
-        
+        padding: 20px;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0.379);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        z-index: 10000;
     }
 
         #sorteoContainer button:not(#exit-sorteo-page) {
@@ -768,8 +787,9 @@ footer {
 
         #confetti {
             position: absolute;
+            height: 100vh;
             mix-blend-mode:lighten;
-            z-index:0;
+            z-index:-1;
         }
 
         #sorteoContainer #exit-sorteo-page {
@@ -786,7 +806,6 @@ footer {
             -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             z-index: 200;
-
         }
 
 

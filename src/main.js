@@ -18,6 +18,7 @@ function init() {
         initLoginButton();
         showLoginForm();
         // loadSorteoPage()
+        // showHome()
     }
 }
 
@@ -91,47 +92,25 @@ function checkUsersinDb(user) {
     });
 }
 
-async function handleQRLogin(user) {
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    if (storedUser) {
-        await participarEnSorteo(storedUser);
-        showHome(storedUser);
-        showMessage("Inscripción al sorteo realizada exitosamente");
-    } else if (user) {
-        const result = checkUsersinDb(user);
-        if (result.success) {
-            await participarEnSorteo(result.user);
-            localStorage.setItem('user', JSON.stringify(result.user));
-            localStorage.setItem('token', result.token);
-            showHome(result.user);
-            showMessage("Inscripción al sorteo realizada exitosamente");
-        } else {
-            showRegisterForm({ dni });
-        }
-    } else {
-        showLoginForm(true);
-    }
-}
+// async function participarEnSorteo(user) {
+//     const today = new Date();
+//     const day = today.getDate();
 
-async function participarEnSorteo(user) {
-    const today = new Date();
-    const day = today.getDate();
+//     console.log(day)
+//     try {
+//         if (day === 13) {
+//             user.sorteo1 = true;
+//         } else if (day === 15) {
+//             user.sorteo2 = true;
+//         }
 
-    console.log(day)
-    try {
-        if (day === 13) {
-            user.sorteo1 = true;
-        } else if (day === 15) {
-            user.sorteo2 = true;
-        }
+//         const result = await api.participarEnSorteo(user);
 
-        const result = await api.participarEnSorteo(user);
-
-        localStorage.setItem('user', JSON.stringify(user));
-    } catch (error) {
-        console.error('Error al participar en el sorteo:', error);
-    }
-}
+//         localStorage.setItem('user', JSON.stringify(user));
+//     } catch (error) {
+//         console.error('Error al participar en el sorteo:', error);
+//     }
+// }
 
 // FUNCIONES EXTRAS
 // Checkear DNI ingresado en Login
@@ -188,17 +167,6 @@ function submitRegistration() {
     }
 }
 
-async function participarEnSorteo(user) {
-    try {
-        const result = await api.participarEnSorteo(user);
-        user.sorteo = true;
-        localStorage.setItem('user', JSON.stringify(user));
-    } catch (error) {
-        console.error('Error al participar en el sorteo:', error);
-    }
-}
-
-
 
 function showErrorMessage(message) {
     const container = document.getElementById('errorContainer');
@@ -223,17 +191,7 @@ function hideOtherContainers(exceptId) {
     });
 }
 
-function capturePhoto() {
-    // En un navegador móvil, esto abriría la cámara
-    // Aquí simplemente simularemos la captura con un prompt
-    const photoUrl = prompt('Ingrese URL de la foto (simulando captura de cámara):');
-    if (photoUrl) {
-        document.getElementById('userPhoto').src = photoUrl;
-    }
-}
-
 // CAREERS
-
 function scrollToItem(id) {
     const container = document.getElementById('scroll-container');
     const element = document.getElementById(id);
@@ -429,15 +387,36 @@ function checkDate() {
 }
 
 
-async function resetSorteoForAllUsers() {
+
+// SCAN QR
+async function participarEnSorteo(user) {
     try {
-        const result = await api.resetSorteoForAllUsers();
-        console.log(result.message);
-        alert(`Se ha reiniciado el estado del sorteo para ${result.modifiedCount} usuarios.`);
+        const result = await api.participarEnSorteo(user);
+        user.sorteo = true;
+        localStorage.setItem('user', JSON.stringify(user));
     } catch (error) {
-        console.error('Error al reiniciar el estado del sorteo:', error);
-        alert(error.message || 'No se pudo reiniciar el estado del sorteo. Por favor, inténtalo de nuevo más tarde.');
+        console.error('Error al participar en el sorteo:', error);
     }
 }
 
-// resetSorteoForAllUsers()
+async function handleQRLogin(user) {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+        await participarEnSorteo(storedUser);
+        showHome(storedUser);
+        showMessage("Inscripción al sorteo realizada exitosamente");
+    } else if (user) {
+        const result = checkUsersinDb(user);
+        if (result.success) {
+            await participarEnSorteo(result.user);
+            localStorage.setItem('user', JSON.stringify(result.user));
+            localStorage.setItem('token', result.token);
+            showHome(result.user);
+            showMessage("Inscripción al sorteo realizada exitosamente");
+        } else {
+            showRegisterForm({ dni });
+        }
+    } else {
+        showLoginForm(true);
+    }
+}
