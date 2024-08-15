@@ -741,9 +741,15 @@ footer {
             font-family: 'Bungee';
             color: var(--expo-pink);
             }
+
+    #sorteoContainer #resultado {
+        display: flex;
+        flex-direction: column;
+    }
     #sorteoContainer h2 {
         margin-top: 60px;
         font-size: 50px;
+        text-align: center;
     }
 
     #sorteoContainer h3 {

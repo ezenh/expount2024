@@ -14,7 +14,6 @@ function init() {
         // console.log('login con QR')
         handleQRLogin(dniFromQR);
     } else {
-        // console.log('login sin QR')
         initLoginButton();
         showLoginForm();
         // loadSorteoPage()
